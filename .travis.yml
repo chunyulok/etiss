@@ -36,10 +36,11 @@ script:
   - make
   - make doc
   - sudo make install
-  - echo $GH_REPO_TOKEN
 
 # Generate and deploy documentation
 deploy:
+  Authorization: token OAUTH-TOKEN
+  GET https://api.github.com/chunyulok
   provider: pages
   skip_cleanup: true
   local_dir: build/doc/html
