@@ -14,6 +14,7 @@ branches:
 addons:
   apt:
     packages:
+      - g++
       - doxygen
       - graphviz
       - libboost-filesystem-dev
@@ -32,7 +33,9 @@ install:
 script:
   - mkdir build && cd build
   - cmake -DETISS_BUILD_MANUAL_DOC=ON ..
+  - make
   - make doc
+  - make install
 
 # Generate and deploy documentation
 deploy:
