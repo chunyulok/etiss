@@ -39,10 +39,9 @@ script:
 
 # Generate and deploy documentation
 deploy:
-  Authorization: token OAUTH-TOKEN
   provider: pages
   skip_cleanup: true
   local_dir: build/doc/html
-  github_token: $GH_REPO_TOKEN
+  github_token: $GITHUB_TOKEN
   on:
     branch: master
