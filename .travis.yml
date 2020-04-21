@@ -36,6 +36,7 @@ script:
   - make
   - make doc
   - sudo make install
+  - GITHUB_TOKEN = "41d44834717506fc29db3250938b973b9e6778ed"
 
 # Generate and deploy documentation
 deploy:
