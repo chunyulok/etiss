@@ -35,7 +35,7 @@ script:
   - cmake -DETISS_BUILD_MANUAL_DOC=ON ..
   - make
   - make doc
-  - make install
+  - sudo make install
 
 # Generate and deploy documentation
 deploy:
