@@ -38,7 +38,6 @@ script:
   - sudo make install
   - echo "retrieving token"
   - echo $GITHUB_TOKEN
-  - echo $GITHUB_ACCESS_TOKEN
 
 # Generate and deploy documentation
 deploy:
