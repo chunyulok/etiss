@@ -36,7 +36,6 @@ script:
   - make
   - make doc
   - sudo make install
-  - echo $GITHUN_TOKEN
 
 # Generate and deploy documentation
 deploy:
