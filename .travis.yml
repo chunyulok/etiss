@@ -50,12 +50,8 @@ deploy:
  
 # building example
 after_deploy:
-  - cd ../SW/riscv
+  - cd ${TRAVIS_BUILD_DIR}/examples/SW
   - mkdir build && cd build
   - cmake ..
   - make
-  - mkdir build && cd build
-  - cmake ..
-  - make
-  - cd ..
-  - ./run_helper.sh path/to/target/binary  
+  - ./run_helper.sh.in path/to/target/binary  
