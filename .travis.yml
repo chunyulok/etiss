@@ -54,4 +54,8 @@ after_deploy:
   - mkdir build && cd build
   - cmake ..
   - make
-  - ./run_helper.sh.in path/to/target/binary  
+  - mkdir build && cd build
+  - cmake ..
+  - make
+  - cd ..
+  - ./run_helper.sh path/to/target/binary
