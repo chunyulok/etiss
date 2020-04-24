@@ -36,7 +36,7 @@ script:
   - cmake -DCMAKE_INSTALL_PREFIX:PATH= `pwd`/installed ..
   - make
   - make doc
-  - sudo make install
+  - make install
   - echo "retrieving token"
   - echo $GITHUB_TOKEN
   - echo "$PATH"
