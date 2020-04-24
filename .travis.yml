@@ -52,6 +52,7 @@ deploy:
  
 # building example
 after_deploy:
+  - cd ${TRAVIS_BUILD_DIR}/examples/bare_etiss_processor
   - cd ../SW/riscv
   - mkdir build && cd build
   - cmake ..
