@@ -54,9 +54,5 @@ after_deploy:
   - mkdir build && cd build
   - cmake ..
   - make
-  - mkdir build && cd build
-  - cmake ..
-  - make
-  - cd ..
   - ${TRAVIS_BUILD_DIR}/examples/bare_etiss_processor/run_helper.sh.in
   - ${TRAVIS_BUILD_DIR}/examples/bare_etiss_processor/run_helper.sh.in ELFFILE tgdb
