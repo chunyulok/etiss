@@ -50,7 +50,7 @@ deploy:
  
 # building example
 after_deploy:
-  - cd ${TRAVIS_BUILD_DIR}/examples/SW
+  - cd ${TRAVIS_BUILD_DIR}/examples
   - mkdir build && cd build
   - cmake ..
   - make
