@@ -33,7 +33,7 @@ install:
 script:
   - mkdir build_dir && cd build_dir
   - cmake -DETISS_BUILD_MANUAL_DOC=ON ..
-  - cmake -DCMAKE_INSTALL_PREFIX:PATH= ${TRAVIS_BUILD_DIR}..
+  - cmake -DCMAKE_INSTALL_PREFIX:PATH= ${TRAVIS_BUILD_DIR}/installed ..
   - make
   - make doc
   - sudo make install
