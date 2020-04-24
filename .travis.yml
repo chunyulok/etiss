@@ -50,7 +50,7 @@ deploy:
  
 # building example
 after_deploy:
-  - cd ${TRAVIS_BUILD_DIR}/examples
+  - cd ${TRAVIS_BUILD_DIR}/examples/bare_etiss_processor
   - mkdir build && cd build
   - cmake ..
   - make
