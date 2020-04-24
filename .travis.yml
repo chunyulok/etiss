@@ -36,7 +36,7 @@ script:
   - cmake -DCMAKE_INSTALL_PREFIX:PATH= `pwd`/installed ..
   - make
   - make doc
-  - make install
+  - sudo make install
   - echo "retrieving token"
   - echo $GITHUB_TOKEN
   - echo "$PATH"
@@ -55,7 +55,7 @@ after_deploy:
   - pwd
   - cd /examples/SW/riscv
   - pwd
-  - mkdir build && cd build
+  - sudo mkdir build && cd build
   - cmake ..
   - make
   - mkdir build && cd build
