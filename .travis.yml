@@ -52,7 +52,7 @@ deploy:
  
 # building example
 after_deploy:
-  - cd ../SW/<or1k>|<riscv>/
+  - cd ../SW/riscv
   - mkdir build && cd build
   - cmake ..
   - make
