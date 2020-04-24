@@ -32,7 +32,7 @@ install:
 # Build your code e.g. by calling make
 script:
   - mkdir build_dir && cd build_dir
-  - cmake -DETISS_BUILD_MANUAL_DOC=ON 
+  - cmake -DETISS_BUILD_MANUAL_DOC=ON ..
   - cmake -DCMAKE_INSTALL_PREFIX:PATH= ${TRAVIS_BUILD_DIR}/build_dir/installed ..
   - make
   - make doc
