@@ -59,3 +59,4 @@ after_deploy:
   - make
   - cd ..
   - ${TRAVIS_BUILD_DIR}/examples/bare_etiss_processor/run_helper.sh.in
+  - ${TRAVIS_BUILD_DIR}/examples/bare_etiss_processor/run_helper.sh.in ELFFILE gdb
