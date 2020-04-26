@@ -57,7 +57,8 @@ after_deploy:
   - pwd
   - cd /examples/SW/riscv/
   - pwd
-  - mkdir build && cd build
+  - sudo mkdir build 
+  - sudo cd build
   - cmake ..
   - make
   - mkdir build && cd build
