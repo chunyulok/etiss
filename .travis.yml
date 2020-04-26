@@ -54,7 +54,7 @@ deploy:
 # building example
 after_deploy:
   - pwd
-  - cd /examples/SW/<or1k>|<riscv>/
+  - cd /examples/SW/riscv/
   - pwd
   - mkdir build && cd build
   - cmake ..
