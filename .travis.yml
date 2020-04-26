@@ -36,7 +36,7 @@ before_script:
   - mkdir build_dir && cd build_dir
   - cmake -DCMAKE_BUILD_TYPE=Release
           -DETISS_BUILD_MANUAL_DOC=ON 
-          -DCMAKE_INSTALL_PREFIX:PATH= `pwd`/installed \
+          -DCMAKE_INSTALL_PREFIX:PATH= `pwd`/installed 
           ..
         
   - make
@@ -58,11 +58,11 @@ deploy:
 # building example
 script:
   - pwd
-  - cd /examples/SW/riscv/
+  - cd ../examples/SW/riscv/
   - pwd
   - sudo mkdir build 
   - cd build
-  - cmake ..
+  - cmake -DCMAKE_BUILD_TYPE=Debug ..
   - make
   - mkdir build && cd build
   - cmake ..
