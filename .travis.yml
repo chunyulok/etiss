@@ -35,7 +35,7 @@ script:
   - mkdir build_dir && cd build_dir
   - cmake -DCMAKE_BUILD_TYPE=Release
           -DETISS_BUILD_MANUAL_DOC=ON 
-          -DCMAKE_INSTALL_PREFIX:PATH= `pwd`/installed ..
+          -DCMAKE_INSTALL_PREFIX:PATH= `pwd`/installed 
   - make
   - make doc
   - sudo make install
@@ -58,7 +58,7 @@ after_deploy:
   - cd /examples/SW/riscv/
   - pwd
   - sudo mkdir build 
-  - sudo cd build
+  - cd build
   - cmake ..
   - make
   - mkdir build && cd build
