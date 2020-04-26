@@ -33,8 +33,9 @@ install:
 script:
   - pwd
   - mkdir build_dir && cd build_dir
-  - cmake -DETISS_BUILD_MANUAL_DOC=ON ..
-  - cmake -DCMAKE_INSTALL_PREFIX:PATH= `pwd`/installed .
+  - cmake -DETISS_BUILD_MANUAL_DOC=ON 
+          -DCMAKE_INSTALL_PREFIX:PATH= `pwd`/installed
+          ..
   - make
   - make doc
   - sudo make install
