@@ -23,7 +23,7 @@ addons:
 before_install:
   - sudo apt-get update
   - sudo apt-get install libboost-system-dev
-  - sudo apt install cmake
+  - sudo apt upgrade cmake
 
 install:
 
