@@ -54,7 +54,7 @@ deploy:
 # building example
 after_deploy:
   - pwd
-  - cd /examples/SW/riscv
+  - cd /examples/SW/riscv/
   - pwd
   - sudo mkdir build && cd build
   - cmake ..
@@ -63,5 +63,4 @@ after_deploy:
   - cmake ..
   - make
   - cd ..
-  - ${TRAVIS_BUILD_DIR}/examples/bare_etiss_processor/run_helper.sh.in
-  - ${TRAVIS_BUILD_DIR}/examples/bare_etiss_processor/run_helper.sh.in ELFFILE tgdb
+  - ./run_helper.sh path/to/target/binary
