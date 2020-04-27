@@ -25,9 +25,10 @@ before_install:
   - sudo apt-get install libboost-system-dev
 
 install:
+  - mkdir -p ${TRAVIS_BUILD_DIR}/deps/cmake
   - wget https://cmake.org/files/v3.16/cmake-3.16.2-Linux-x86_64.sh
-  - sh cmake-3.16.2-Linux-x86_64.sh 
-  - cd ${TRAVIS_BUILD_DIR}
+  - sh cmake-3.16.2-Linux-x86_64.sh --prefix=${TRAVIS_BUILD_DIR}/deps/cmake --exclude-subdir
+  - PATH=${TRAVIS_BUILD_DIR}/deps/cmake:${TRAVIS_BUILD_DIR}/deps/cmake/bin:$PATH
 
 # Build your code e.g. by calling make
 before_script:
@@ -56,6 +57,7 @@ deploy:
  
 # building example
 script:
+  - sudo chmod 777 ${TRAVIS_BUILD_DIR}/deps/cmake
   - pwd
   - cd ../examples/SW/riscv/
   - pwd
