@@ -19,9 +19,6 @@ addons:
       - graphviz
       - libboost-filesystem-dev
       - cmake
-env:
-  global:
-    - TMPDIR=/deps/cmake
 
 before_install:
   - sudo apt-get update
