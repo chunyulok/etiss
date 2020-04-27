@@ -37,7 +37,7 @@ before_script:
   - mkdir build_dir && cd build_dir
   - cmake -DCMAKE_BUILD_TYPE=Release
           -DETISS_BUILD_MANUAL_DOC=ON 
-          -DCMAKE_INSTALL_PREFIX:PATH= ${TRAVIS_BUILD_DIR}/build_dir/installed
+          -DCMAKE_INSTALL_PREFIX:PATH= ${TRAVIS_BUILD_DIR}/deps/cmake
           -DBUILD_SOURCE_DOCUMENTATION=ON
           ..    
   - make
