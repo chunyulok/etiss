@@ -47,7 +47,6 @@ before_script:
   - echo "$PATH"
   
  script:
-  - sudo chmod 777 ${TRAVIS_BUILD_DIR}/deps/cmake
   - pwd
   - cd ../examples/SW/riscv/
   - pwd
