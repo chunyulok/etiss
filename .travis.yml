@@ -57,7 +57,7 @@ deploy:
     
 script:
   - pwd
-  - cd build_dir/installed/examples/SW/riscv/
+  - cd ../examples/SW/riscv/
   - pwd
   - sudo mkdir build 
   - cd build
