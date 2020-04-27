@@ -45,18 +45,8 @@ before_script:
   - echo "retrieving token"
   - echo $GITHUB_TOKEN
   - echo "$PATH"
-
-# Generate and deploy documentation
-deploy:
-  provider: pages
-  skip_cleanup: true
-  local_dir: build_dir/doc/html
-  github_token: $GITHUB_TOKEN
-  on:
-    branch: master
- 
-# building example
-script:
+  
+ script:
   - sudo chmod 777 ${TRAVIS_BUILD_DIR}/deps/cmake
   - pwd
   - cd ../examples/SW/riscv/
@@ -69,4 +59,15 @@ script:
   - cmake ..
   - make
   - cd ..
-  - ./run_helper.sh path/to/target/binary
+  - ./run_helper.sh path/to/target/binary 
+
+# Generate and deploy documentation
+deploy:
+  provider: pages
+  skip_cleanup: true
+  local_dir: build_dir/doc/html
+  github_token: $GITHUB_TOKEN
+  on:
+    branch: master
+ 
+
