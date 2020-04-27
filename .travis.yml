@@ -46,6 +46,21 @@ before_script:
   - echo $GITHUB_TOKEN
   - echo "$PATH"
 
+script:
+  - pwd
+  - cd ../examples/SW/riscv/
+  - pwd
+  - sudo mkdir build 
+  - cd build
+  - cmake -DCMAKE_BUILD_TYPE=Debug ..
+  - make
+  - mkdir build && cd build
+  - cmake ..
+  - make
+  - cd ..
+  - ./run_helper.sh path/to/target/binary     
+ 
+
 
 # Generate and deploy documentation
 deploy:
@@ -56,7 +71,7 @@ deploy:
   on:
     branch: master
     
- script:
+script:
   - pwd
   - cd ../examples/SW/riscv/
   - pwd
