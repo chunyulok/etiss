@@ -26,9 +26,10 @@ before_install:
 
 install:
   - mkdir -p ${TRAVIS_BUILD_DIR}/deps/cmake
-  - wget https://cmake.org/files/v3.16/cmake-3.16.2-Linux-x86_64.sh
-  - sh cmake-3.16.2-Linux-x86_64.sh --prefix=${TRAVIS_BUILD_DIR}/deps/cmake --exclude-subdir
-  - PATH=${TRAVIS_BUILD_DIR}/deps/cmake:${TRAVIS_BUILD_DIR}/deps/cmake/bin:$PATH
+  - wget https://cmake.org/files/v3.16/cmake-3.16.2-Linux-x86_64.sh # getting Cmake version 3.16.2
+  - sh cmake-3.16.2-Linux-x86_64.sh --prefix=${TRAVIS_BUILD_DIR}/deps/cmake --exclude-subdir #save cmake package into directory
+  - echo $PATH
+  - PATH=${TRAVIS_BUILD_DIR}/deps/cmake:${TRAVIS_BUILD_DIR}/deps/cmake/bin:$PATH 
 
 # Build your code e.g. by calling make
 before_script:
@@ -59,7 +60,6 @@ script:
   - cd ${TRAVIS_BUILD_DIR}/examples/bare_etiss_processor
   - cd ../SW/riscv/
   - pwd
-  -  sh cmake-3.16.2-Linux-x86_64.sh --prefix=${TRAVIS_BUILD_DIR}/deps/cmake --exclude-subdir
   - sudo mkdir build 
   - cd build
   - cmake ..
