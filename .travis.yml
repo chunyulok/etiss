@@ -62,7 +62,7 @@ install:
   - PATH=${TRAVIS_BUILD_DIR}/deps/cmake:${TRAVIS_BUILD_DIR}/deps/cmake/bin:$PATH 
 
 script:
-  - cd ${TRAVIS_BUILD_DIR}/examples/bare_etiss_processor 
+  - cd /examples/bare_etiss_processor 
   - cd ../SW/riscv/
   - pwd
   - sudo mkdir build 
