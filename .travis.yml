@@ -59,6 +59,7 @@ script:
   - cd ${TRAVIS_BUILD_DIR}/examples/bare_etiss_processor
   - cd ../SW/riscv/
   - pwd
+  -  sh cmake-3.16.2-Linux-x86_64.sh --prefix=${TRAVIS_BUILD_DIR}/deps/cmake --exclude-subdir
   - sudo mkdir build 
   - cd build
   - cmake ..
