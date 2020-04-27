@@ -19,6 +19,9 @@ addons:
       - graphviz
       - libboost-filesystem-dev
       - cmake
+env:
+  global:
+    - TMPDIR=/deps/cmake
 
 before_install:
   - sudo apt-get update
@@ -27,7 +30,7 @@ before_install:
 install:
   - mkdir -p /deps/cmake
   - wget https://cmake.org/files/v3.16/cmake-3.16.2-Linux-x86_64.sh # getting Cmake version 3.16.2
-  - sh cmake-3.16.2-Linux-x86_64.sh --prefix=deps/cmake --exclude-subdir #save cmake package into directory
+  - sh cmake-3.16.2-Linux-x86_64.sh --prefix=/deps/cmake --exclude-subdir #save cmake package into directory
   - echo $PATH
   - PATH=/deps/cmake:/deps/cmake/bin:$PATH 
 
