@@ -37,7 +37,7 @@ before_script:
   - pwd
   - cmake -DCMAKE_BUILD_TYPE=Release
           -DETISS_BUILD_MANUAL_DOC=ON 
-          -DCMAKE_INSTALL_PREFIX:PATH= 'pwd'/installed
+          -DCMAKE_INSTALL_PREFIX:PATH= `pwd`/installed
           -DBUILD_SOURCE_DOCUMENTATION=ON
           ..    
   - make
