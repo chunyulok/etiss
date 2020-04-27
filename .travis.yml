@@ -25,10 +25,7 @@ before_install:
   - sudo apt-get install libboost-system-dev
 
 install:
-  - mkdir -p ${TRAVIS_BUILD_DIR}/deps/cmake
   - wget https://cmake.org/files/v3.16/cmake-3.16.2-Linux-x86_64.sh
-  - sh cmake-3.16.2-Linux-x86_64.sh --prefix=${TRAVIS_BUILD_DIR}/deps/cmake --exclude-subdir
-  - PATH=${TRAVIS_BUILD_DIR}/deps/cmake:${TRAVIS_BUILD_DIR}/deps/cmake/bin:$PATH
   - cd ${TRAVIS_BUILD_DIR}
 
 # Build your code e.g. by calling make
@@ -37,7 +34,7 @@ before_script:
   - mkdir build_dir && cd build_dir
   - cmake -DCMAKE_BUILD_TYPE=Release
           -DETISS_BUILD_MANUAL_DOC=ON 
-          -DCMAKE_INSTALL_PREFIX:PATH= ${TRAVIS_BUILD_DIR}/deps/cmake
+          -DCMAKE_INSTALL_PREFIX:PATH= ${TRAVIS_BUILD_DIR}/build_dir/installed
           -DBUILD_SOURCE_DOCUMENTATION=ON
           ..    
   - make
