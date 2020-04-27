@@ -32,6 +32,7 @@ install:
 
 # Build your code e.g. by calling make
 before_script:
+  - cd ${TRAVIS_BUILD_DIR}/deps/cmake 
   - mkdir build_dir && cd build_dir
   - pwd
   - cmake -DCMAKE_BUILD_TYPE=Release
