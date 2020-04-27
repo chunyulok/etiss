@@ -32,11 +32,11 @@ install:
 
 # Build your code e.g. by calling make
 before_script:
-  - pwd
   - mkdir build_dir && cd build_dir
+  - pwd
   - cmake -DCMAKE_BUILD_TYPE=Release
           -DETISS_BUILD_MANUAL_DOC=ON 
-          -DCMAKE_INSTALL_PREFIX:PATH= ${TRAVIS_BUILD_DIR}/build_dir/installed
+          -DCMAKE_INSTALL_PREFIX:PATH= 'pwd'/installed
           -DBUILD_SOURCE_DOCUMENTATION=ON
           ..    
   - make
@@ -58,7 +58,7 @@ deploy:
     
 script:
   - pwd
-  - cd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/
+  - cd build_dir/installed/examples/SW/riscv/
   - pwd
   - sudo mkdir build 
   - cd build
