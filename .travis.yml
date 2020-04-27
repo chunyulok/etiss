@@ -27,14 +27,12 @@ before_install:
 install:
   - mkdir -p ${TRAVIS_BUILD_DIR}/deps/cmake
   - wget https://cmake.org/files/v3.16/cmake-3.16.2-Linux-x86_64.sh
-  - sh cmake-3.16.2-Linux-x86_64.sh --prefix=${TRAVIS_BUILD_DIR}/deps/cmake --exclude-subdir
-  - PATH=${TRAVIS_BUILD_DIR}/deps/cmake:${TRAVIS_BUILD_DIR}/deps/cmake/bin:$PATH
+  - sh cmake-3.16.2-Linux-x86_64.sh --prefix=${TRAVIS_BUILD_DIR}/cmake --exclude-subdir
+  - PATH=${TRAVIS_BUILD_DIR}/cmake:${TRAVIS_BUILD_DIR}/cmake/bin:$PATH
 
 # Build your code e.g. by calling make
 before_script:
-  - cd ${TRAVIS_BUILD_DIR}/deps/cmake 
   - mkdir build_dir && cd build_dir
-  - pwd
   - cmake -DCMAKE_BUILD_TYPE=Release
           -DETISS_BUILD_MANUAL_DOC=ON 
           -DCMAKE_INSTALL_PREFIX:PATH= `pwd`/installed
