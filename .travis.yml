@@ -44,23 +44,8 @@ before_script:
   - sudo make install
   - echo "retrieving token"
   - echo $GITHUB_TOKEN
-  - echo "$PATH"
-
-script:
-  - pwd
-  - cd ../examples/SW/riscv/
-  - pwd
-  - sudo mkdir build 
-  - cd build
-  - cmake -DCMAKE_BUILD_TYPE=Debug ..
-  - make
-  - mkdir build && cd build
-  - cmake ..
-  - make
-  - cd ..
-  - ./run_helper.sh path/to/target/binary     
+  - echo "$PATH"     
  
-
 
 # Generate and deploy documentation
 deploy:
@@ -77,7 +62,7 @@ script:
   - pwd
   - sudo mkdir build 
   - cd build
-  - cmake -DCMAKE_BUILD_TYPE=Debug ..
+  - sudo cmake -DCMAKE_BUILD_TYPE=Debug ..
   - make
   - mkdir build && cd build
   - cmake ..
