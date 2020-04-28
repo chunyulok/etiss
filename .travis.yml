@@ -58,7 +58,7 @@ deploy:
 script:
   - whoami
   - cd /examples/bare_etiss_processor 
-  - cmake-clean-cache
+  - --cmake-clean-cache
   - cd ../SW/riscv/
   - pwd
   - sudo mkdir build 
