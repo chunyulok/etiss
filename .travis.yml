@@ -30,6 +30,7 @@ install:
   - sh cmake-3.16.2-Linux-x86_64.sh --prefix=${TRAVIS_BUILD_DIR}/deps/cmake --exclude-subdir #save cmake package into directory
   - echo $PATH
   - PATH=${TRAVIS_BUILD_DIR}/deps/cmake:${TRAVIS_BUILD_DIR}/deps/cmake/bin:$PATH #hiding old version of Cmake
+  - chmod -R 777 ${TRAVIS_BUILD_DIR}/deps/cmake
 
 # Build your code e.g. by calling make
 before_script:
@@ -45,8 +46,6 @@ before_script:
   - echo "$PATH"  
   
 script:
-  - whoami
-  - chown -R $User:$User ${TRAVIS_BUILD_DIR}/deps/cmake/bin
   - cd /examples/bare_etiss_processor 
   - cd ../SW/riscv/
   - pwd
