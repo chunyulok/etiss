@@ -30,7 +30,7 @@ install:
   - sh cmake-3.16.2-Linux-x86_64.sh --prefix=${TRAVIS_BUILD_DIR}/deps/cmake --exclude-subdir #save cmake package into directory
   - echo $PATH
   - PATH=${TRAVIS_BUILD_DIR}/deps/cmake:${TRAVIS_BUILD_DIR}/deps/cmake/bin:$PATH #hiding old version of Cmake
-  - chmod -R 777 ${TRAVIS_BUILD_DIR}/deps/cmake
+  - chmod -R 777 $PATH
 
 # Build your code e.g. by calling make
 before_script:
