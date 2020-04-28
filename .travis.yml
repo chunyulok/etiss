@@ -42,19 +42,8 @@ before_script:
   - sudo make install
   - echo "retrieving token"
   - echo $GITHUB_TOKEN
-  - echo "$PATH"     
- 
-
-# Generate and deploy documentation
-deploy:
-  provider: pages
-  skip_cleanup: true
-  local_dir: build_dir/doc/html
-  github_token: $GITHUB_TOKEN
-  on:
-    branch: master
-
-
+  - echo "$PATH"  
+  
 script:
   - whoami
   - cd /examples/bare_etiss_processor 
@@ -71,5 +60,15 @@ script:
   - make
   - cd ..
   - ./run_helper.sh path/to/target/binary     
+   
  
+
+# Generate and deploy documentation
+deploy:
+  provider: pages
+  skip_cleanup: true
+  local_dir: build_dir/doc/html
+  github_token: $GITHUB_TOKEN
+  on:
+    branch: master
 
