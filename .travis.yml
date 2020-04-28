@@ -58,12 +58,12 @@ deploy:
 script:
   - whoami
   - cd /examples/bare_etiss_processor 
-  - make clean
+  - cmake-clean-cache
   - cd ../SW/riscv/
   - pwd
   - sudo mkdir build 
   - cd build
-  - PATH=${TRAVIS_BUILD_DIR}/cmake:${TRAVIS_BUILD_DIR}/cmake/bin:$PATH 
+  - PATH=${TRAVIS_BUILD_DIR}/cmake:${TRAVIS_BUILD_DIR}/cmake/bin:$PATH
   - cmake ..
   - make
   - mkdir build && cd build
