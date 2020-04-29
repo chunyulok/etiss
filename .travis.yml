@@ -47,7 +47,7 @@ before_script:
   
 script:
   - cd /usr/local/examples/SW/riscv/
-  - mkdir build 
+  - sudo mkdir build 
   - cd build
   - cmake ..
   - make
