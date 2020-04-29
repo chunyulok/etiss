@@ -15,7 +15,6 @@ addons:
   apt:
     packages:
       - g++
-      - clang
       - doxygen
       - graphviz
       - libboost-filesystem-dev
@@ -23,6 +22,7 @@ addons:
 
 before_install:
   - sudo apt-get update
+  - sudo apt-get install clang
   - sudo apt-get install libboost-system-dev
 
 install:
