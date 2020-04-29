@@ -35,7 +35,7 @@ install:
 # Build your code e.g. by calling make
 before_script:
   - mkdir build_dir && cd build_dir
-  - echp `pwd`
+  - echo `pwd`
   - cmake -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON \
           -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed \
             ..
