@@ -15,6 +15,7 @@ addons:
   apt:
     packages:
       - g++
+      - clang
       - doxygen
       - graphviz
       - libboost-filesystem-dev
