@@ -22,7 +22,6 @@ addons:
 
 before_install:
   - sudo apt-get update
-  - sudo apt-get install clang
   - sudo apt-get install libboost-system-dev
 
 install:
@@ -36,9 +35,9 @@ install:
 # Build your code e.g. by calling make
 before_script:
   - mkdir build_dir && cd build_dir
-  - cmake -DCMAKE_BUILD_TYPE=Release
-          -DETISS_BUILD_MANUAL_DOC=ON 
-          -DCMAKE_INSTALL_PREFIX:PATH= `pwd`/installed ..  #Install ETISS in to `pwd`/installed by running CMakelist from ../ETISS.buid_dir
+  - cmake -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON \
+          -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed \
+            ..
   - make
   - make doc
   - sudo make install
@@ -57,7 +56,7 @@ script:
   - cmake ..
   - make
   - cd ..
-  - ./run_helper.sh path/to/target/binary     
+  - ./run_helper.sh.in path/to/target/binary     
    
  
 
