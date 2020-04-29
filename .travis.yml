@@ -46,10 +46,9 @@ before_script:
   - echo "$PATH"  
   
 script:
-  - cd /examples/bare_etiss_processor 
-  - cd ../SW/riscv/
-  - pwd
-  - sudo mkdir build 
+  - cd ${TRAVIS_BUILD_DIR}/examples/bare_etiss_processor 
+  #- cd ../SW/riscv/
+  - mkdir build 
   - cd build
   - cmake ..
   - make
