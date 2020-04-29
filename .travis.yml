@@ -46,6 +46,7 @@ before_script:
   - echo "$PATH"  
   
 script:
+  - cmake -version
   - cd /usr/local/examples/SW/riscv/
   - sudo mkdir build 
   - cd build
