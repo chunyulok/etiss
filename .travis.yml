@@ -30,6 +30,8 @@ install:
   - mkdir -p ${TRAVIS_BUILD_DIR}/deps/cmake
   - wget https://cmake.org/files/v3.16/cmake-3.16.2-Linux-x86_64.sh # getting Cmake version 3.16.2
   - sh cmake-3.16.2-Linux-x86_64.sh --prefix=${TRAVIS_BUILD_DIR}/deps/cmake --exclude-subdir #save cmake package into directory
+  - docker exec -t host bash -c "cd /travis && wget https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz"
+  - docker exec -t host bash -c "cd /travis && tar xzvf riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz"
   - PATH=${TRAVIS_BUILD_DIR}/deps/cmake:${TRAVIS_BUILD_DIR}/deps/cmake/bin:$PATH #hiding old version of Cmake
   - cd ${TRAVIS_BUILD_DIR}
 
