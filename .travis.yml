@@ -46,7 +46,7 @@ before_script:
   
 script:
   - cmake -version
-  - cd /usr/local/examples/SW/riscv/
+  - cd ${TRAVIS_BUILD_DIR}/examples/bare_etiss_processor
   - sudo mkdir build 
   - cd build
   - cmake ..
