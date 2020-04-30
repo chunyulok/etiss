@@ -26,10 +26,10 @@ before_install:
 
 install:
   - echo ${TRAVIS_BUILD_DIR}
-  - mkdir -p ${TRAVIS_BUILD_DIR}
+  - mkdir -p ${TRAVIS_BUILD_DIR}/deps/cmake
   - wget https://cmake.org/files/v3.16/cmake-3.16.2-Linux-x86_64.sh # getting Cmake version 3.16.2
-  - sh cmake-3.16.2-Linux-x86_64.sh --prefix=${TRAVIS_BUILD_DIR}--exclude-subdir #save cmake package into directory
-  - PATH=${TRAVIS_BUILD_DIR}:${TRAVIS_BUILD_DIR}bin:$PATH #hiding old version of Cmake
+  - sh cmake-3.16.2-Linux-x86_64.sh --prefix=${TRAVIS_BUILD_DIR}/deps/cmake --exclude-subdir #save cmake package into directory
+  - PATH=${TRAVIS_BUILD_DIR}/deps/cmake:${TRAVIS_BUILD_DIR}/deps/cmake/bin:$PATH #hiding old version of Cmake
   - cd ${TRAVIS_BUILD_DIR}
 
 # Build your code e.g. by calling make
