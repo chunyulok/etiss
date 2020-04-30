@@ -46,7 +46,7 @@ before_script:
   
 script:
   - cmake -version
-  - cd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/sw/riscv/
+  - cd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/
   - sudo mkdir build 
   - cd build
   - cmake ..
