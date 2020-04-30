@@ -14,6 +14,7 @@ branches:
 addons:
   apt:
     packages:
+      - g++
       - doxygen
       - graphviz
       - libboost-filesystem-dev
@@ -21,6 +22,7 @@ addons:
 before_install:
   - sudo apt-get update
   - sudo apt-get install libboost-system-dev
+  - sudo apt-get install build-essential git
 
 install:
   - echo ${TRAVIS_BUILD_DIR}
