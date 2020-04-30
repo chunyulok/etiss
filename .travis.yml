@@ -14,11 +14,9 @@ branches:
 addons:
   apt:
     packages:
-      - g++
       - doxygen
       - graphviz
       - libboost-filesystem-dev
-      - cmake
 
 before_install:
   - sudo apt-get update
