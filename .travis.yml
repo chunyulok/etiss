@@ -49,7 +49,7 @@ script:
   - cd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/
   - mkdir build 
   - cd build
-  - cmake -D CMAKE_C_COMPILER="${TRAVIS_BUILD_DIR}/deps/cmake" .. 
+  - cmake -D CMAKE_C_COMPILER=${TRAVIS_BUILD_DIR}/deps/cmake .. 
   - make
   - cd ${TRAVIS_BUILD_DIR}//build_dir/installed/examples/bare_etiss_processor 
   - mkdir build && cd build
