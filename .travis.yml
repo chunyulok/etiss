@@ -33,7 +33,7 @@ install:
   - sh cmake-3.16.2-Linux-x86_64.sh --prefix=${TRAVIS_BUILD_DIR}/deps/cmake --exclude-subdir #save cmake package into directory
   - cd ${TRAVIS_BUILD_DIR}/deps/toolchain
   - wget https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz
-  - tar -zxf riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz
+  - tar -zxf riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz -C  ${TRAVIS_BUILD_DIR}/deps/toolchain
   - PATH=${TRAVIS_BUILD_DIR}/deps/cmake:${TRAVIS_BUILD_DIR}/deps/cmake/bin:${TRAVIS_BUILD_DIR}/deps/toolchain:$PATH #hiding old version of Cmake
   - PATH=${TRAVIS_BUILD_DIR}/deps/toolchain:${TRAVIS_BUILD_DIR}/deps/toolchain/bin:${TRAVIS_BUILD_DIR}/deps/toolchain:$PATH
   - cd ${TRAVIS_BUILD_DIR}
