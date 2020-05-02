@@ -32,7 +32,7 @@ install:
   - wget https://cmake.org/files/v3.16/cmake-3.16.2-Linux-x86_64.sh # getting Cmake version 3.16.2
   - sh cmake-3.16.2-Linux-x86_64.sh --prefix=${TRAVIS_BUILD_DIR}/deps/cmake --exclude-subdir #save cmake package into directory
   - wget https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz
-  - tar -jxf riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz --directory ${TRAVIS_BUILD_DIR}/deps/toolchain
+  - tar -zxf riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz --directory ${TRAVIS_BUILD_DIR}/deps/toolchain
   - PATH=${TRAVIS_BUILD_DIR}/deps/cmake:${TRAVIS_BUILD_DIR}/deps/cmake/bin:${TRAVIS_BUILD_DIR}/deps/toolchain:$PATH #hiding old version of Cmake
   - cd ${TRAVIS_BUILD_DIR}
 
@@ -52,7 +52,8 @@ script:
   - cd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv
   - mkdir build
   - cd build
-  - $ cmake -DRISCV_ELF_GCC_PREFIX=${TRAVIS_BUILD_DIR}/deps/toolchain -DRISCV_ELF_GCC_BASENAME=riscv64-unknown-elf ..
+  - cmake -D CMAKE_C_COMPILER=${TRAVIS_BUILD_DIR}/deps/toolchain -D CMAKE_CXX_COMPILER=${TRAVIS_BUILD_DIR}/deps/toolchain -DRISCV_ELF_GCC_PREFIX=${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/build/toolchain -DRISCV_ELF_GCC_BASENAME=riscv64-unknown-elf ..
+  - make
    
  
 
