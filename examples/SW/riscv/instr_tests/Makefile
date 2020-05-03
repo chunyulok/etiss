@@ -1,4 +1,4 @@
-BINUTILSPREFIX?=/usr/local/research/projects/SystemDesign/tools/riscv/riscv32-unknown-elf/bin/riscv32-unknown-elf-
+BINUTILSPREFIX?=${TRAVIS_BUILD_DIR}/deps/toolchain/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14
 ASSEMBLYFILES=$(wildcard *.S)
 ALLTARGETS=$(ASSEMBLYFILES:.S=.bin)
 ALLSPP=$(ASSEMBLYFILES:.S=.Spp)
