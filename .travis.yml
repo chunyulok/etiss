@@ -56,6 +56,7 @@ script:
   - cd build
   - cmake -DRISCV_ELF_GCC_PREFIX=${TRAVIS_BUILD_DIR}/deps/toolchain/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14 -DRISCV_ELF_GCC_BASENAME=riscv64-unknown-elf ..
   - make
+  - cd instr_tests; make all
    
  
 
