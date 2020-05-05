@@ -63,7 +63,7 @@ script:
   - cmake ..
   - make
   - cd ..
-  - ./run_helper.sh ${TRAVIS_BUILD_DIR}/deps/toolchain/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14/riscv64-unknown-elf/bin tgdb
+  - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/build/riscv_example tgdb
    
  
 
