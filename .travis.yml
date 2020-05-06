@@ -30,13 +30,14 @@ install:
   - echo ${TRAVIS_BUILD_DIR}
   - mkdir -p ${TRAVIS_BUILD_DIR}/deps/cmake #directory for Cmake version 3.16.2
   - mkdir -p ${TRAVIS_BUILD_DIR}/deps/toolchain #directly for Riscv64 toolchain
+  - mkdir -p ${TRAVIS_BUILD_DIR}/deps/LLVM #directory for LLVM 
   - wget https://cmake.org/files/v3.16/cmake-3.16.2-Linux-x86_64.sh # getting Cmake version 3.16.2
   - sh cmake-3.16.2-Linux-x86_64.sh --prefix=${TRAVIS_BUILD_DIR}/deps/cmake --exclude-subdir #save cmake package into directory
   - wget https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz #install sifive riscv64 package
   - tar -zxf riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz --directory ${TRAVIS_BUILD_DIR}/deps/toolchain #extract file to directory
+  - wget https://releases.llvm.org/7.0.1/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-16.04.tar.xz
+  - tar -jxf riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz --directory ${TRAVIS_BUILD_DIR}/deps/LLVM
   - PATH=${TRAVIS_BUILD_DIR}/deps/cmake:${TRAVIS_BUILD_DIR}/deps/cmake/bin:${TRAVIS_BUILD_DIR}/deps/toolchain:$PATH #hiding old version of Cmake
-   #PATH=${TRAVIS_BUILD_DIR}/deps/toolchain:${TRAVIS_BUILD_DIR}/deps/toolchain/bin:${TRAVIS_BUILD_DIR}/deps/toolchain:$PATH
-   #- cd ${TRAVIS_BUILD_DIR}
 
 # Build your code e.g. by calling make
 before_script:
