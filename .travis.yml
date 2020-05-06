@@ -43,7 +43,7 @@ install:
 before_script:
   - mkdir build_dir && cd build_dir
   - echo `pwd`
-  - cmake -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..
+  - cmake -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed -DLLVM_DIR=${TRAVIS_BUILD_DIR}/deps/LLVM ..
   - make
   - make doc
   - make install
@@ -65,7 +65,7 @@ script:
   # make all
   - cd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/bare_etiss_processor
   - mkdir build && cd build
-  - cmake -DLLVM_DIR=${TRAVIS_BUILD_DIR}/deps/LLVM ..
+  - cmake ..
   - make
   - cd ..
   - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/build/riscv_example
