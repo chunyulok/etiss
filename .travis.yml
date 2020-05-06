@@ -28,15 +28,15 @@ before_install:
 
 install:
   - echo ${TRAVIS_BUILD_DIR}
-  - mkdir -p ${TRAVIS_BUILD_DIR}/deps/cmake
-  - mkdir -p ${TRAVIS_BUILD_DIR}/deps/toolchain
+  - mkdir -p ${TRAVIS_BUILD_DIR}/deps/cmake #directory for Cmake version 3.16.2
+  - mkdir -p ${TRAVIS_BUILD_DIR}/deps/toolchain #directly for Riscv64 toolchain
   - wget https://cmake.org/files/v3.16/cmake-3.16.2-Linux-x86_64.sh # getting Cmake version 3.16.2
   - sh cmake-3.16.2-Linux-x86_64.sh --prefix=${TRAVIS_BUILD_DIR}/deps/cmake --exclude-subdir #save cmake package into directory
-  - wget https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz
-  - tar -zxf riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz --directory ${TRAVIS_BUILD_DIR}/deps/toolchain
+  - wget https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz #install sifive riscv64 package
+  - tar -zxf riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz --directory ${TRAVIS_BUILD_DIR}/deps/toolchain #extract file to directory
   - PATH=${TRAVIS_BUILD_DIR}/deps/cmake:${TRAVIS_BUILD_DIR}/deps/cmake/bin:${TRAVIS_BUILD_DIR}/deps/toolchain:$PATH #hiding old version of Cmake
-  - PATH=${TRAVIS_BUILD_DIR}/deps/toolchain:${TRAVIS_BUILD_DIR}/deps/toolchain/bin:${TRAVIS_BUILD_DIR}/deps/toolchain:$PATH
-  - cd ${TRAVIS_BUILD_DIR}
+   #PATH=${TRAVIS_BUILD_DIR}/deps/toolchain:${TRAVIS_BUILD_DIR}/deps/toolchain/bin:${TRAVIS_BUILD_DIR}/deps/toolchain:$PATH
+   #- cd ${TRAVIS_BUILD_DIR}
 
 # Build your code e.g. by calling make
 before_script:
@@ -51,7 +51,6 @@ before_script:
   - echo "$PATH"  
   
 script:
-  - echo $home
   - cd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv
   - mkdir build
   - cd build
@@ -63,7 +62,7 @@ script:
   - cmake ..
   - make
   - cd ..
-  - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/build/riscv_example tgdb
+  - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/build/riscv_example 
    
  
 
