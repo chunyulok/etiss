@@ -43,7 +43,7 @@ install:
 before_script:
   - mkdir build_dir && cd build_dir
   - echo `pwd`
-  - cmake -DLLVM_DIR=${TRAVIS_BUILD_DIR}/deps/LLVM -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..
+  - cmake -DLLVM_DIR=${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-16.04 -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..
   - make
   - make doc
   - make install
