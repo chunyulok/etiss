@@ -65,7 +65,7 @@ script:
   # make all
   - cd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/bare_etiss_processor
   - mkdir build && cd build
-  - cmake -DLLVM_DIR=${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-16.04/lib/cmake/llvm ..
+  - cmake -DLLVM_DIR=/home/travis/build/chunyulok/etiss/build_dir/installed/lib/plugins/libLLVMJIT.so ..
   - make
   - cd ..
   - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/build/riscv_example
