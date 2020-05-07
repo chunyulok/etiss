@@ -1,3 +1,4 @@
+@@ -1,27 +1,29 @@
 #!/bin/bash
 # Config
 ETISS_HOME=@CMAKE_INSTALL_PREFIX@/
