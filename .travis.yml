@@ -65,10 +65,10 @@ script:
   # make all
   - cd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/bare_etiss_processor
   - mkdir build && cd build
-  - cmake  ..
-  - make
   - export CC=/usr/bin/clang
   - export CXX=/usr/bin/clang++
+  - cmake  ..
+  - make
   - cd ..
   - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/build/riscv_example llvm
   - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv_cpp/build/riscv_example llvm
