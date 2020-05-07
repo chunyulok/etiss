@@ -35,7 +35,7 @@ install:
   - sh cmake-3.16.2-Linux-x86_64.sh --prefix=${TRAVIS_BUILD_DIR}/deps/cmake --exclude-subdir #save cmake package into directory
   - wget https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz #install sifive riscv64 package
   - tar -zxf riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz --directory ${TRAVIS_BUILD_DIR}/deps/toolchain #extract file to directory
-  - wget https://releases.llvm.org/7.0.1/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04.tar.xz #install
+  - wget ‐‐limit-rate=20k ‐‐wait=60 https://releases.llvm.org/7.0.1/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04.tar.xz #install
   - tar -xf clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04.tar.xz --directory ${TRAVIS_BUILD_DIR}/deps/LLVM
   - PATH=${TRAVIS_BUILD_DIR}/deps/cmake:${TRAVIS_BUILD_DIR}/deps/cmake/bin:${TRAVIS_BUILD_DIR}/deps/toolchain:$PATH #hiding old version of Cmake
 
