@@ -1,10 +1,14 @@
-@@ -1,27 +1,29 @@
 #!/bin/bash
+
 # Config
 ETISS_HOME=@CMAKE_INSTALL_PREFIX@/
+
+
 # Clear tmp file
 DYN_INI=/tmp/etiss_dynamic.ini
 echo "" > $DYN_INI
+
+
 # Args
 if [ "$#" -lt 1 ]; then
     echo -e "Usage: $0 TargetELF [options] [vp VPExecutable]\n" \
@@ -17,7 +21,6 @@ if [ "$#" -lt 1 ]; then
         "  nodmi    Disable DMI\n" \
         "  logpc    Enable logging of the program counter\n" \
         "  v        Set ETISS output to verbose\n" \
-        "  trace    Trace memory accesses\n"
         "  trace    Trace memory accesses\n" \
         "  gcc      Use GCC as JIT instead of TCC\n" \
         "  llvm     Use LLVM as JIT instead of TCC\n"
@@ -36,8 +39,10 @@ echo -e \
   "sw_binary_ram=${TARGETSW_PATH_RAM}\n" \
   "sw_binary_rom=${TARGETSW_PATH_ROM}\n" \
     >> $DYN_INI
+
 export ETISS_HOME=${ETISS_HOME}
 VP_EXE="${ETISS_HOME}/examples/bare_etiss_processor/build/main"
+
 USE_GDB=0
 USE_TGDB=0
 DO_NOT_ATTACH=0
@@ -78,6 +83,7 @@ do
     fi
     shift
 done
+
 echo -e "[BoolConfigurations]\n ETISS::enable_dmi=${ENABLE_DMI}" >> $DYN_INI
 echo -e "[BoolConfigurations]\n ETISS::log_pc=${LOG_PC}" >> $DYN_INI
 echo -e "[IntConfigurations]\n logLevel=${LOG_LEVEL}" >> $DYN_INI
