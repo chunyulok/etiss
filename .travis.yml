@@ -43,7 +43,7 @@ install:
 before_script:
   - mkdir build_dir && cd build_dir
   - echo `pwd`
-  - export LD_LIBRARY_PATH= ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-16.04/bin/lib:$LD_LIBRARY_PATH
+  - export LD_LIBRARY_PATH= ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-16.04/lib:$LD_LIBRARY_PATH
   - export CC=${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-16.04/bin/clang
   - export CXX=${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-16.04/bin/clang++
   - cmake -DLLVM_DIR=${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-16.04/lib/cmake/llvm -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..
