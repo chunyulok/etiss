@@ -27,7 +27,7 @@ before_install:
   - sudo apt install clang
 
 install:
-  - echo ${TRAVIS_BUILD_DIR}
+  - echo ${LD_LIBRARY_PATH}
   - mkdir -p ${TRAVIS_BUILD_DIR}/deps/cmake #directory for Cmake version 3.16.2
   - mkdir -p ${TRAVIS_BUILD_DIR}/deps/toolchain #directly for Riscv64 toolchain
   - mkdir -p ${TRAVIS_BUILD_DIR}/deps/LLVM #directory for LLVM 
