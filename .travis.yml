@@ -37,7 +37,7 @@ install:
   - tar -zxf riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz --directory ${TRAVIS_BUILD_DIR}/deps/toolchain #extract file to directory
   - travis_retry wget https://releases.llvm.org/7.0.1/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-16.04.tar.xz #install
   - tar -xf clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-16.04.tar.xz --directory ${TRAVIS_BUILD_DIR}/deps/LLVM
-  - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-16.04/lib
+  - export LD_LIBRARY_PATH=${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-16.04/lib:$LD_LIBRARY_PATH
   - PATH=${TRAVIS_BUILD_DIR}/deps/cmake:${TRAVIS_BUILD_DIR}/deps/cmake/bin:${TRAVIS_BUILD_DIR}/deps/toolchain:$PATH #hiding old version of Cmake
 
 # Build your code e.g. by calling make
