@@ -51,8 +51,8 @@ before_script:
   - echo "retrieving token"
   - echo $GITHUB_TOKEN
   - echo "$PATH"
-  - ls ${TRAVIS_BUILD_DIR}/deps/LLVM
-  - ls /usr/local/bin
+  - ls ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib
+  - ls  /usr/local/lib
   
 script:
   - cd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv
