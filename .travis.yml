@@ -38,6 +38,7 @@ install:
   - travis_retry wget https://releases.llvm.org/7.0.1/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04.tar.xz #install
   - tar -xf clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04.tar.xz --directory ${TRAVIS_BUILD_DIR}/deps/LLVM
   - PATH=${TRAVIS_BUILD_DIR}/deps/cmake:${TRAVIS_BUILD_DIR}/deps/cmake/bin:${TRAVIS_BUILD_DIR}/deps/toolchain:$PATH #hiding old version of Cmake
+  - PATH=${TRAVIS_BUILD_DIR}/deps/LLVM:${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04:${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib:$PATH
 
 # Build your code e.g. by calling make
 before_script:
