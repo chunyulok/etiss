@@ -44,6 +44,7 @@ before_script:
   - mkdir build_dir && cd build_dir
   - echo `pwd`
   - cmake -DLLVM_DIR=${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib/cmake/llvm -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..
+  - - export LD_LIBRARY_PATH=${TRAVIS_BUILD_DIR}/deps/LLVM:${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04:${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib:$LD_LIBRARY_PATH
   - make
   - make doc
   - make install
@@ -68,7 +69,6 @@ script:
   - cmake ..
   - make
   - cd ..
-  - export LD_LIBRARY_PATH=${TRAVIS_BUILD_DIR}/deps/LLVM:${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04:${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib:$LD_LIBRARY_PATH
   - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/build/riscv_example llvm
   - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv_cpp/build/riscv_example llvm
    
