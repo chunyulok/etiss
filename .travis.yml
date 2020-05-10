@@ -53,6 +53,7 @@ before_script:
   - echo "$PATH"
   - ls ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib
   - ls  /etc/ld.so.conf
+  - ls /home/travis/build/chunyulok/etiss/build_dir/installed/lib/plugins/
   
 script:
   - cd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv
