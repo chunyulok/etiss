@@ -41,7 +41,6 @@ install:
 
 # Build your code e.g. by calling make
 before_script:
-  - ls usr/bin/lib
   - mkdir build_dir && cd build_dir
   - echo `pwd`
   - cmake -DLLVM_DIR=${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib/cmake/llvm -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..
@@ -51,7 +50,9 @@ before_script:
   - make install
   - echo "retrieving token"
   - echo $GITHUB_TOKEN
-  - echo "$PATH"  
+  - echo "$PATH"
+  - ls ${TRAVIS_BUILD_DIR}/deps/LLVM
+  - ls /usr/local/bin
   
 script:
   - cd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv
