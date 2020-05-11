@@ -73,6 +73,7 @@ script:
   - make
   - cd ..
   - - export LD_LIBRARY_PATH=${TRAVIS_BUILD_DIR}/deps/LLVM:$LD_LIBRARY_PATH
+  - ldd run_helper.sh
   - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/build/riscv_example llvm
   - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv_cpp/build/riscv_example llvm
    
