@@ -56,8 +56,15 @@ before_script:
   - make
   - make doc
   - make install
-  - ls /usr/lib/x86_64-linux-gnu
-  
+  - cd /usr/lib/x86_64-linux-gnu 
+  - mv libz.so.1 ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib
+  - mv libdl.so.2 ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib
+  - mv libtinfo.so.5 ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib
+  - mv libpthread.so.0 ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib
+  - mv libstdc++.so.6  ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib
+  - mv libm.so.6 ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib
+  - mv libgcc_s.so.1 ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib
+  - mv libc.so.6 ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib
 script:
   - cd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv
   - mkdir build
@@ -77,7 +84,7 @@ script:
   - cd ..
   - ls ${TRAVIS_BUILD_DIR}/build_dir/installed/lib/plugins
   - ldd ${TRAVIS_BUILD_DIR}/build_dir/installed/lib/plugins
-  #- export LD_LIBRARY_PATH=${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib:$LD_LIBRARY_PATH
+  - export LD_LIBRARY_PATH=${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib:$LD_LIBRARY_PATH
   - ldd ${TRAVIS_BUILD_DIR}/build_dir/installed/lib/plugins
   - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/build/riscv_example llvm
   - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv_cpp/build/riscv_example llvm
