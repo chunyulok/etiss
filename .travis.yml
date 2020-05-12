@@ -57,7 +57,8 @@ before_script:
   - make
   - make doc
   - make install
-  - whereis
+  - whereis linux-vdso.so.1
+  - whereis libETISS.so
   - cd /usr/lib/x86_64-linux-gnu
   - cp libstdc++.so.6  ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/li
   - cd /lib/x86_64-linux-gnu/
@@ -87,6 +88,7 @@ script:
   - cd ..
   - export LD_LIBRARY_PATH=${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib:$LD_LIBRARY_PATH
   - ldd ${TRAVIS_BUILD_DIR}/build_dir/installed/lib/plugins/libLLVMJIT.so
+  - ldd ./run_helper.sh
   - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/build/riscv_example llvm
   - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv_cpp/build/riscv_example llvm
    
