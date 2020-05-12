@@ -58,15 +58,15 @@ before_script:
   - make doc
   - make install
   - cd /usr/lib/x86_64-linux-gnu
-  - whereis libz.so.1
-  #- cp libz.so.1 ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib
-  #- cp libdl.so.2 ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib
-  #- cp libtinfo.so.5 ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib
+  - cp libstdc++.so.6  ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/li
+  - cd /lib/x86_64-linux-gnu/
+  - cp libz.so.1 ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib
+  - cp libdl.so.2 ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib
+  - cp libtinfo.so.5 ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib
   - cp libpthread.so.0 ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib
-  - cp libstdc++.so.6  ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib
-  #- cp libm.so.6 ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib
-  #- cp libgcc_s.so.1 ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib
-  #- cp libc.so.6 ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib
+  - cp libm.so.6 ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib
+  - cp libgcc_s.so.1 ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib
+  - cp libc.so.6 ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib
 script:
   - cd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv
   - mkdir build
