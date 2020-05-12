@@ -40,6 +40,8 @@ install:
   - travis_retry wget https://releases.llvm.org/7.0.1/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04.tar.xz #install LLVM 7.0.1
   - tar -xf clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04.tar.xz --directory ${TRAVIS_BUILD_DIR}/deps/LLVM #extract 
   - PATH=${TRAVIS_BUILD_DIR}/deps/cmake:${TRAVIS_BUILD_DIR}/deps/cmake/bin:${TRAVIS_BUILD_DIR}/deps/toolchain:$PATH #hiding old version of Cmake
+  - ls ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib
+  
 
 #env:
  # global:
