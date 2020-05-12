@@ -57,6 +57,7 @@ before_script:
   - make
   - make doc
   - make install
+  - whereis
   - cd /usr/lib/x86_64-linux-gnu
   - cp libstdc++.so.6  ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/li
   - cd /lib/x86_64-linux-gnu/
