@@ -56,6 +56,8 @@ before_script:
   - make
   - make doc
   - make install
+  - ls /usr/local/lib
+  - ls /usr/local/lib/x86_64-linux-gnu
   - cd /usr/lib/x86_64-linux-gnu 
   #- cp libz.so.1 ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib
   #- cp libdl.so.2 ${TRAVIS_BUILD_DIR}/deps/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib
