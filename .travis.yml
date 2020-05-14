@@ -5,7 +5,7 @@ dist: bionic
 language:
     - c++
 
-# Install dependencies
+# Install packages
 addons:
   apt:
     packages:
@@ -16,11 +16,6 @@ addons:
       - libboost-filesystem-dev
       - libtinfo-dev
       - zlib1g-dev
-
-#before_install:
-  #- sudo apt-get install gdbserver
-  #- sudo apt-get install build-essential git
-  #- sudo apt install clang
 
 install:
 #making directory to store installed dependencies: cmake, toolchain, JIT
@@ -45,7 +40,7 @@ install:
   - tar -xf ${llvm_701}.tar.xz --directory ${Dep_dir}/JIT 
 
   
-# Build ETISS your code e.g. by calling make
+# Build and install ETISS 
 before_script:
   - cd ${TRAVIS_BUILD_DIR}
   - mkdir build_dir && cd build_dir
