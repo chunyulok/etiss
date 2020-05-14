@@ -25,8 +25,9 @@ addons:
 install:
   - mkdir -p ${TRAVIS_BUILD_DIR}/deps
   - Dep_dir="${TRAVIS_BUILD_DIR}/deps"
+  - cd ${Dep_dir}
   - mkdir -p ${Dep_dir}/cmake #directory for Cmake version 3.16.2
-  - mkdir -p ${Dep_dir}/Riscv_toolchain #directly for Riscv64 toolchain
+#  - mkdir -p ${Dep_dir}/Riscv_toolchain #directly for Riscv64 toolchain
   - mkdir -p ${Dep_dir}/LLVM #directory for LLVM 
   - wget https://cmake.org/files/v3.16/cmake-3.16.2-Linux-x86_64.sh # getting Cmake version 3.16.2
   - Cmake_version16="cmake-3.16.2-Linux-x86_64.sh"
@@ -34,7 +35,7 @@ install:
   - wget https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz #Install sifive riscv64 package
   - RISC_V64="riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz"
 #- tar -zxf ${RISC_V64} --directory ${Dep_dir}/Riscv_toolchain #extract file to directory
-  - tar -cvzf ${RISC_V64}  ${Dep_dir}/Riscv_toolchain
+  - tar -cvf ${RISC_V64}  Riscv_toolchain
   - travis_retry wget https://releases.llvm.org/7.0.1/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04.tar.xz #install LLVM 7.0.1
   - lvm_701="clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04.tar.xz"
   - tar -xf ${lvm_701} --directory ${Dep_dir}/LLVM #extract LLVM to directory
@@ -43,8 +44,9 @@ install:
   
 # Build ETISS your code e.g. by calling make
 before_script:
+  - cd ${TRAVIS_BUILD_DIR}
   - mkdir build_dir && cd build_dir
-  - cmake -DLLVM_DIR=${Dep_dir}/LLVM/{llvm7.0.1}/lib/cmake/llvm -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..
+  - cmake -DLLVM_DIR=${Dep_dir}/LLVM/{llvm_701}/lib/cmake/llvm -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..
   - make
   - make doc
   - make install
@@ -68,7 +70,7 @@ script:
   - make
   - cd ..
   - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/build/riscv_example 
-  - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv_cpp/build/riscv_example 
+  - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv_cpp/build/riscv_example GCC 
    
  
 
