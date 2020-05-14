@@ -33,7 +33,8 @@ install:
   - sh ${Cmake_version16} --prefix=${TRAVIS_BUILD_DIR}/deps/cmake --exclude-subdir #save cmake package into directory
   - wget https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz #Install sifive riscv64 package
   - RISC_V64="riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz"
-  - tar -zxf ${RISC_V64} --directory $${Dep_dir}/Riscv_toolchain #extract file to directory
+#- tar -zxf ${RISC_V64} --directory $${Dep_dir}/Riscv_toolchain #extract file to directory
+  - tar -zxf ${RISC_V64} --prefix=${Dep_dir}/Riscv_toolchain --exclude-subdir
   - travis_retry wget https://releases.llvm.org/7.0.1/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04.tar.xz #install LLVM 7.0.1
   - LLVM_7.0.1="clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04.tar.xz"
   - tar -xf ${LLVM_7.0.1} --directory ${Dep_dir}/LLVM #extract LLVM to directory
@@ -52,12 +53,14 @@ script:
   - cd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv
   - mkdir build
   - cd build
-  - cmake -DRISCV_ELF_GCC_PREFIX=${Dep_dir}/toolchain/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14 -DRISCV_ELF_GCC_BASENAME=riscv64-unknown-elf ..
+#  - cmake -DRISCV_ELF_GCC_PREFIX=${Dep_dir}/toolchain/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14 -DRISCV_ELF_GCC_BASENAME=riscv64-unknown-elf ..
+  - cmake -DRISCV_ELF_GCC_PREFIX=${Dep_dir}/Riscv_toolchain -DRISCV_ELF_GCC_BASENAME=riscv64-unknown-elf ..
   - make
   - cd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv_cpp
   - mkdir build
   - cd build
-  - cmake -DRISCV_ELF_GCC_PREFIX=${Dep_dir}/toolchain/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14 -DRISCV_ELF_GCC_BASENAME=riscv64-unknown-elf ..
+#  - cmake -DRISCV_ELF_GCC_PREFIX=${Dep_dir}/toolchain/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14 -DRISCV_ELF_GCC_BASENAME=riscv64-unknown-elf ..
+  - cmake -DRISCV_ELF_GCC_PREFIX=${Dep_dir}/Riscv_toolchain -DRISCV_ELF_GCC_BASENAME=riscv64-unknown-elf ..
   - make 
   - cd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/bare_etiss_processor
   - mkdir build && cd build
