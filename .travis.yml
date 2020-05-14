@@ -36,8 +36,8 @@ install:
 #- tar -zxf ${RISC_V64} --directory ${Dep_dir}/Riscv_toolchain #extract file to directory
   - tar -cvzf ${RISC_V64}  ${Dep_dir}/Riscv_toolchain
   - travis_retry wget https://releases.llvm.org/7.0.1/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04.tar.xz #install LLVM 7.0.1
-  - llvm7.0.1="clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04.tar.xz"
-  - tar -xf ${LLVM_7.0.1} --directory ${Dep_dir}/LLVM #extract LLVM to directory
+  - lvm_701="clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04.tar.xz"
+  - tar -xf ${lvm_701} --directory ${Dep_dir}/LLVM #extract LLVM to directory
   - PATH=${Dep_dir}/cmake:${Dep_dir}/cmake/bin:$PATH #hiding old version of Cmake
 
   
