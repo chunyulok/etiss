@@ -24,7 +24,7 @@ addons:
 
 install:
   - mkdir -p ${TRAVIS_BUILD_DIR}/deps
-  - Dep_dir = "${TRAVIS_BUILD_DIR}/deps"
+  - Dep_dir="${TRAVIS_BUILD_DIR}/deps"
   - mkdir -p ${Dep_dir}/cmake #directory for Cmake version 3.16.2
   - mkdir -p ${Dep_dir}/Riscv_toolchain #directly for Riscv64 toolchain
   - mkdir -p ${Dep_dir}/LLVM #directory for LLVM 
