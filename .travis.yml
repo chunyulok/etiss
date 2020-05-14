@@ -25,9 +25,9 @@ addons:
 install:
   - mkdir -p ${TRAVIS_BUILD_DIR}/deps
   - Dep_dir="${TRAVIS_BUILD_DIR}/deps"
-  - cd ${Dep_dir}
+#  - cd ${Dep_dir}
   - mkdir -p ${Dep_dir}/cmake #directory for Cmake version 3.16.2
-#  - mkdir -p ${Dep_dir}/Riscv_toolchain #directly for Riscv64 toolchain
+  - mkdir -p ${Dep_dir}/Riscv_toolchain #directly for Riscv64 toolchain
   - mkdir -p ${Dep_dir}/LLVM #directory for LLVM 
   - wget https://cmake.org/files/v3.16/cmake-3.16.2-Linux-x86_64.sh # getting Cmake version 3.16.2
   - Cmake_version16="cmake-3.16.2-Linux-x86_64.sh"
