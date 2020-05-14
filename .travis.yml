@@ -27,14 +27,14 @@ install:
   - Dep_dir="${TRAVIS_BUILD_DIR}/deps"
 #  - cd ${Dep_dir}
   - mkdir -p ${Dep_dir}/cmake #directory for Cmake version 3.16.2
-  - mkdir -p ${Dep_dir}/toolchain toolchain #directly for Riscv64 toolchain
+  - mkdir -p ${Dep_dir}/toolchain #directly for Riscv64 toolchain
   - mkdir -p ${Dep_dir}/JIT #directory for LLVM 
   - wget https://cmake.org/files/v3.16/cmake-3.16.2-Linux-x86_64.sh # getting Cmake version 3.16.2 (works)
   - Cmake_version16="cmake-3.16.2-Linux-x86_64.sh"
   - sh ${Cmake_version16} --prefix=${TRAVIS_BUILD_DIR}/deps/cmake --exclude-subdir #save cmake package into directory
   - wget https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz #Install sifive riscv64 package
   - RISC_V64="riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz"
-  - tar -zxf ${RISC_V64} --directory ${Dep_dir}/Riscv_toolchain #extract file to directory
+  - tar -zxf ${RISC_V64} --directory ${Dep_dir}/toolchain #extract file to directory
   - travis_retry wget https://releases.llvm.org/7.0.1/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04.tar.xz #install LLVM 7.0.1
   - lvm_701="clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04.tar.xz"
   - tar -xf ${lvm_701} --directory ${Dep_dir}/JIT #extract LLVM to directory
