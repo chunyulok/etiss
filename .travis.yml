@@ -32,16 +32,18 @@ install:
   - Cmake_version16="cmake-3.16.2-Linux-x86_64.sh"
   - sh ${Cmake_version16} --prefix=${TRAVIS_BUILD_DIR}/deps/cmake --exclude-subdir #save cmake package into directory
   - wget https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz #Install sifive riscv64 package
-  - tar -zxf riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz --directory ${TRAVIS_BUILD_DIR}/deps/toolchain #extract file to directory
+  - RISC_V64="riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz"
+  - tar -zxf ${RISC_V64} --directory $${Dep_dir}/Riscv_toolchain #extract file to directory
   - travis_retry wget https://releases.llvm.org/7.0.1/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04.tar.xz #install LLVM 7.0.1
-  - tar -xf clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04.tar.xz --directory ${TRAVIS_BUILD_DIR}/deps/LLVM #extract LLVM to directory
+  - LLVM_7.0.1="clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04.tar.xz"
+  - tar -xf ${LLVM_7.0.1} --directory ${Dep_dir}/LLVM #extract LLVM to directory
   - PATH=${Dep_dir}/cmake:${Dep_dir}/cmake/bin:$PATH #hiding old version of Cmake
 
   
 # Build ETISS your code e.g. by calling make
 before_script:
   - mkdir build_dir && cd build_dir
-  - cmake -DLLVM_DIR=${Dep_dir}/LLVM/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/lib/cmake/llvm -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..
+  - cmake -DLLVM_DIR=${Dep_dir}/LLVM/LLVM_7.0.1/lib/cmake/llvm -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..
   - make
   - make doc
   - make install
