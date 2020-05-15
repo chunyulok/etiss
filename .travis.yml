@@ -24,9 +24,9 @@ addons:
 before_install:
   - 
     if [ "$TRAVIS_OS_NAME" = "windows" ]; then
-      choco install doxygen;
+      choco install doxygen.install;
       choco install graphviz;
-      choco install boost-msvc-16.8
+      choco install choco install boost-msvc-14.1;
 
     fi
 
