@@ -26,8 +26,7 @@ before_install:
     if [ "$TRAVIS_OS_NAME" = "windows" ]; then
       choco install doxygen.install;
       choco install graphviz;
-      choco install choco install boost-msvc-14.1;
-
+      choco install boost-msvc-14.1;
     fi
 
 install:
