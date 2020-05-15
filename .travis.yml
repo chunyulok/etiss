@@ -35,24 +35,28 @@ install:
   - sh ${Cmake_version16} --prefix=${TRAVIS_BUILD_DIR}/deps/cmake --exclude-subdir
   - PATH=${Dep_dir}/cmake:${Dep_dir}/cmake/bin:$PATH #hiding old version of Cmake
   #Install, extract Riscv64 to directory 
-  - if [ "$TRAVIS_OS_NAME" = "linux" ];	
+ 
+ - 
+    if [ "$TRAVIS_OS_NAME" = "linux" ]; then 	
     - wget https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz
     - RISC_V64="riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14"
     - tar -zxf ${RISC_V64}.tar.gz --directory ${Dep_dir}/toolchain 
-    ;fi
+    fi
 
-  - if [ "$TRAVIS_OS_NAME" = "windows" ];
+  - 
+    if [ "$TRAVIS_OS_NAME" = "windows" ]; then
     - wget https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-w64-mingw32.zip
     - RISC_V64="https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-w64-mingw32.zip"
     - tar -zxf ${RISC_V64}.tar.gz --directory ${Dep_dir}/toolchain 
-    ;fi	
+    fi	
 
   #Install, extract llvm(not working yet) 
-  - if [ "$TRAVIS_OS_NAME" = "linux" ];	
+  - 
+    if [ "$TRAVIS_OS_NAME" = "linux" ];	
     - travis_retry wget https://releases.llvm.org/7.0.1/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04.tar.xz
     - llvm_701="clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04"
     - tar -xf ${llvm_701}.tar.xz --directory ${Dep_dir}/JIT
-    ;fi 
+    fi 
 
   
 # Build and install ETISS 
