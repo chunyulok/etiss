@@ -23,7 +23,7 @@ addons:
 
 before_install:
   - 
-    if [ "$TRAVIS_OS_NAME" = "windows" ];
+    if [ "$TRAVIS_OS_NAME" = "windows" ]; then
       install:
         wget -O boost_1_68_0.zip https://sourceforge.net/projects/boost/files/boost/1.68.0/boost_1_68_0.zip/download;
         unzip boost_1_68_0.zip;
