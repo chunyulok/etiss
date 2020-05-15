@@ -26,8 +26,8 @@ before_install:
     if [ "$TRAVIS_OS_NAME" = "windows" ]; then
       choco install doxygen;
       choco install graphviz;
-      choco install libboost-filesystem-dev;
-      choco libboost-system-dev;
+      choco install boost-msvc-16.8
+
     fi
 
 install:
