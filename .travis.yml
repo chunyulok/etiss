@@ -21,6 +21,14 @@ addons:
       - libtinfo-dev
       - zlib1g-dev
 
+before_install:
+  - if [ "$TRAVIS_OS_NAME" = "windows" ]; then brew doxygen         ; fi
+  - if [ "$TRAVIS_OS_NAME" = "windows" ]; then brew graphviz         ; fi
+  - if [ "$TRAVIS_OS_NAME" = "windows" ]; then brew libboost-system-dev        ; fi
+  - if [ "$TRAVIS_OS_NAME" = "windows" ]; then brew libboost-filesystem-dev      ; fi
+  - if [ "$TRAVIS_OS_NAME" = "windows" ]; then brew libtinfo-dev         ; fi
+  - if [ "$TRAVIS_OS_NAME" = "windows" ]; then brew zlib1g-dev         ; fi
+
 install:
 #making directory to store installed dependencies: cmake, toolchain, JIT
   - mkdir -p ${TRAVIS_BUILD_DIR}/deps
