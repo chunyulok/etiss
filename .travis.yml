@@ -24,12 +24,12 @@ addons:
 before_install:
   - if [ "$TRAVIS_OS_NAME" = "windows" ];
     install:
-      wget -O boost_1_68_0.zip https://sourceforge.net/projects/boost/files/boost/1.68.0/boost_1_68_0.zip/download
-      unzip boost_1_68_0.zip
-      cd boost_1_68_0.zip
-      ./bootstrap.sh --with-libraries=filesystem-dev,system-dev
-      ./b2
-      ./b2 install
+      wget -O boost_1_68_0.zip https://sourceforge.net/projects/boost/files/boost/1.68.0/boost_1_68_0.zip/download;
+      unzip boost_1_68_0.zip;
+      cd boost_1_68_0.zip;
+      ./bootstrap.sh --with-libraries=filesystem-dev,system-dev;
+      ./b2;
+      ./b2 install;
     fi; 
 
 install:
