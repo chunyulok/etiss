@@ -27,7 +27,7 @@ before_install:
       choco install doxygen.install;
       choco install graphviz;
       choco install boost-msvc-14.1;
-      dir C:\Users\travis\AppData\Local\Temp\chocolatey\boost-msvc-14.1\1.67.0\boost_1_67_0-msvc-14.1-64.exe\lib;
+      dir C:\ProgramData\chocolatey\lib;
     fi
 
 install:
