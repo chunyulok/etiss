@@ -69,7 +69,7 @@ install:
   
 # Build and install ETISS 
 before_script:
-  - dir $HOME/AppData/Local/Temp/chocolatey
+  - dir $HOME/AppData/Local/Temp/chocolatey/boost-msvc-14.1/1.67.0
   - cd ${TRAVIS_BUILD_DIR}
   - mkdir build_dir && cd build_dir
   - cmake -DBoost_LIBRARY_DIRS=C:\Users\travis\AppData\Local\Temp\chocolatey\boost-msvc-14.1\1.67.0\boost_1_67_0-msvc-14.1-64.exe\lib  -DLLVM_DIR=${Dep_dir}/JIT/${llvm_701}/lib/cmake/llvm -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..
