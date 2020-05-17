@@ -31,7 +31,7 @@ before_install:
       cd "/C/local/boost_1_68_0";
       ./bootstrap.bat;
       ./b2.exe --with-filesystem --with-system;
-      export Boost_LIBRARY_DIRS="/c/local/boost_1_68_0/stage/lib"
+      export Boost_LIBRARY_DIRS="/c/local/boost_1_68_0/stage/lib";
     fi
 
 install:
