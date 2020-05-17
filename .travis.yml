@@ -71,7 +71,7 @@ install:
 before_script:
   - dir $HOME/AppData/Local/Temp/chocolatey/boost-msvc-14.1
   - dir $HOME/AppData/Local/Temp/chocolatey/
-  - dir /C/ProgramData/chocolatey/bin
+  - dir /C/ProgramData/chocolatey/lib
   - dir /C/Program Files
   - cd ${TRAVIS_BUILD_DIR}
   - mkdir build_dir && cd build_dir
