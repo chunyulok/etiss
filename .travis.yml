@@ -69,8 +69,8 @@ install:
   
 # Build and install ETISS 
 before_script:
-  - dir $HOME/AppData/Local/Temp/chocolatey/boost-msvc-14.1/1.67.0/
-  - dur $HOME/AppData/Local/Temp/chocolatey/boost-msvc-14.1
+  - dir $HOME/AppData/Local/Temp/chocolatey/boost-msvc-14.1
+  - dir $HOME/AppData/Local/Temp/chocolatey/
   - dir /C/ProgramData/chocolatey/bin
   - dir /C/Program Files
   - cd ${TRAVIS_BUILD_DIR}
