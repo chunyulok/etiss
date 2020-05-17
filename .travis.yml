@@ -73,7 +73,7 @@ install:
   
 # Build and install ETISS 
 before_script:
-   - dir /c/local/boost_1_68_0/stage/lib 
+#   - dir /c/local/boost_1_68_0/stage/lib 
 #  - dir $HOME/AppData/Local/Temp/chocolatey/boost-msvc-14.1
 #  - dir $HOME/AppData/Local/Temp/chocolatey/
 #  - dir /C/ProgramData/chocolatey/lib/boost-msvc-14.1	
