@@ -85,7 +85,7 @@ before_script:
 #  - dir /C/Program Files
   - cd ${TRAVIS_BUILD_DIR}
   - mkdir build_dir && cd build_dir
-  - cmake -DBoost_DEBUG=ON -DBOOST_ROOT=C:\local\ -DBOOST_INCLUDEDIR=C:\local\boost_1_68_0 -DBOOST_LIBRARYDIR=C:\local\boost_1_68_0\stage\lib -DLLVM_DIR=${Dep_dir}/JIT/${llvm_701}/lib/cmake/llvm -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..
+  - cmake -DBoost_DEBUG=ON -DBOOST_ROOT=C:/local -DBOOST_INCLUDEDIR=C:/local/boost_1_68_0 -DBOOST_LIBRARYDIR=C:/local/boost_1_68_0/stage/lib -DLLVM_DIR=${Dep_dir}/JIT/${llvm_701}/lib/cmake/llvm -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..
   - make
   - make doc
   - make install
