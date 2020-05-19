@@ -74,18 +74,9 @@ install:
   
 # Build and install ETISS 
 before_script:
-  - dir /c/local/boost_1_68_0
-  - dir /c/local/boost_1_68_0/libs
-  - dir /c/local/boost_1_68_0/stage/lib
-#  - set BOOST_ROOT=/c/local/boost_1_68_0
-#  - set BOOST_LIBRARYDIR=/C/local/boost_1_68_0/stage/lib
-#  - dir $HOME/AppData/Local/Temp/chocolatey/boost-msvc-14.1
-#  - dir $HOME/AppData/Local/Temp/chocolatey/
-#  - dir /C/ProgramData/chocolatey/lib/boost-msvc-14.1	
-#  - dir /C/Program Files
   - cd ${TRAVIS_BUILD_DIR}
   - mkdir build_dir && cd build_dir
-#For linux
+  #For linux
   -
     if [ "$TRAVIS_OS_NAME" = "linux" ]; then
       - cmake -DLLVM_DIR=${Dep_dir}/JIT/${llvm_701}/lib/cmake/llvm -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..;
@@ -93,9 +84,9 @@ before_script:
       - make doc;
       - make install;
     fi  
-#For window
+  #For window
   -
-    if [ "$TRAVIS_OS_NAME" = "window" ]; then
+    if [ "$TRAVIS_OS_NAME" = "windows" ]; then
       - cmake -DBoost_USE_STATIC_LIBS=ON -DBOOST_ROOT="C:\local" -DBOOST_INCLUDEDIR="C:\local\boost_1_68_0" -DBOOST_LIBRARYDIR="C:\local\boost_1_68_0\stage\lib" -DLLVM_DIR=${Dep_dir}/JIT/${llvm_701}/lib/cmake/llvm -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..;
       - cmake --build . --target install;
     fi
