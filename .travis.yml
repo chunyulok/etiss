@@ -48,16 +48,16 @@ install:
     if [ "$TRAVIS_OS_NAME" = "linux" ]; then 
       wget https://cmake.org/files/v3.16/cmake-3.16.2-Linux-x86_64.sh;
       Cmake_version16="cmake-3.16.2-Linux-x86_64.sh";
-      sh ${Cmake_version16} --prefix=${TRAVIS_BUILD_DIR}/deps/cmake; --exclude-subdir
-      PATH=${Dep_dir}/cmake:${Dep_dir}/cmake/bin:$PATH; #hiding old version of Cmake
+      sh ${Cmake_version16} --prefix=${TRAVIS_BUILD_DIR}/deps/cmake --exclude-subdir;
+      PATH=${Dep_dir}/cmake:${Dep_dir}/cmake/bin:$PATH;
     fi
   
   -
     if [ "$TRAVIS_OS_NAME" = "windows" ]; then
       wget https://cmake.org/files/v3.16/cmake-3.16.2-win32-x86.msi;
       Cmake_version16="cmake-3.16.2-win32-x86.msi";
-      msi ${Cmake_version16} --prefix=${TRAVIS_BUILD_DIR}/deps/cmake; --exclude-subdir
-      PATH=${Dep_dir}/cmake:${Dep_dir}/cmake/bin:$PATH; #hiding old version of Cmake
+      msi ${Cmake_version16} --prefix=${TRAVIS_BUILD_DIR}/deps/cmake --exclude-subdir;
+      PATH=${Dep_dir}/cmake:${Dep_dir}/cmake/bin:$PATH;
     fi
   
   #Install, extract Riscv64 to directory 
