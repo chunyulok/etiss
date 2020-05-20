@@ -54,7 +54,7 @@ install:
   
   - wget https://cmake.org/files/v3.16/cmake-3.16.2-win32-x86.msi
   - Cmake_version16="cmake-3.16.2-win32-x86.msi"
-  - msiexec.exe ${Cmake_version16} TARGETDIR="C${Dep_dir}/cmake" /qb
+  - msiexec.exe ${Cmake_version16} TARGETDIR="${Dep_dir}/cmake" /qb
   - PATH=${Dep_dir}/cmake:${Dep_dir}/cmake/bin:$PATH
   - dir ${Dep_dir}/cmake/bin
   
