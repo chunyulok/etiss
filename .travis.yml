@@ -56,7 +56,7 @@ install:
   
   - wget https://cmake.org/files/v3.16/cmake-3.16.2-win32-x86.zip
   - Cmake_version16="cmake-3.16.2-win32-x86"
-  - tar -xvf  ${Cmake_version16}.zip -c ${Dep_dir}/cmake;
+  - tar xvf  ${Cmake_version16}.zip -c ${Dep_dir}/cmake;
   - PATH=${Dep_dir}/cmake/${Cmake_version16}:${Dep_dir}/cmake/${Cmake_version16}/bin:$PATH
   - dir ${Dep_dir}/cmake/${Cmake_version16}/bin
   
