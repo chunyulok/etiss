@@ -86,7 +86,7 @@ install:
 
   
 # Build and install ETISS 
-before_script:travis-wait-improved --timeout 20m
+before_script:
   - cd ${TRAVIS_BUILD_DIR}
   - mkdir build_dir && cd build_dir
   #For linux
@@ -100,8 +100,8 @@ before_script:travis-wait-improved --timeout 20m
   #For window
   - cmake -A x64 -DBoost_USE_STATIC_LIBS=ON -DBOOST_ROOT="C:\local" -DBOOST_INCLUDEDIR="C:\local\boost_1_68_0" -DBOOST_LIBRARYDIR="C:\local\boost_1_68_0\stage\lib" -DLLVM_DIR=${Dep_dir}/JIT/${llvm_701}/lib/cmake/llvm -DCMAKE_BUILD_TYPE=Debug -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..
   - cmake --build .
-  - cmake --build . --target doc
-  - cmake --build . --target install
+  - travis-wait-improved --timeout 20m cmake --build . --target doc
+  - travis-wait-improved --timeout 20m cmake --build . --target install
 
 script:
   - cd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv
