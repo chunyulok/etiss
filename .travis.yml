@@ -87,7 +87,7 @@ install:
   
 # Build and install ETISS 
 before_script:
-  - dir /C/ProgramData/chocolatey/bin
+  - dir /C/ProgramData/chocolatey/lib
   - cd ${TRAVIS_BUILD_DIR}
   - mkdir build_dir && cd build_dir
   #For linux
