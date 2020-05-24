@@ -27,7 +27,8 @@ before_install:
     if [ "$TRAVIS_OS_NAME" = "windows" ]; then
       choco install doxygen.install;
       choco install graphviz;
-      choco install unzip; 
+      choco install unzip;
+      choco install llvm; 
       wget https://dl.bintray.com/boostorg/release/1.68.0/source/boost_1_68_0.7z;
       7z x boost_1_68_0.7z -o/C/local;
       cd "/C/local/boost_1_68_0";
@@ -82,12 +83,6 @@ install:
       llvm_701="clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04";
       tar -xf ${llvm_701}.tar.xz --directory ${Dep_dir}/JIT;
     fi
-  -
-    if [ "$TRAVIS_OS_NAME" = "windowa" ]; then	
-      travis_retry wget https://releases.llvm.org/7.0.1/LLVM-7.0.1-win64.exe.tar.xz;
-      llvm_701="clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04";
-      tar -xf ${llvm_701}.tar.xz --directory ${Dep_dir}/JIT;
-    fi 
 
   
 # Build and install ETISS 
@@ -105,7 +100,7 @@ before_script:
     fi  
   #For window
   - cmake -A x64 -DBoost_USE_STATIC_LIBS=ON -DBOOST_ROOT="C:\local" -DBOOST_INCLUDEDIR="C:\local\boost_1_68_0" -DBOOST_LIBRARYDIR="C:\local\boost_1_68_0\stage\lib" -DLLVM_DIR=${Dep_dir}/JIT/${llvm_701}/lib/cmake/llvm -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..
-  - cmake --build . > /dev/null
+  - cmake --build . 
   - cmake --build . --target doc > /dev/null
   - cmake --build . --target install
 
