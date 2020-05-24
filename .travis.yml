@@ -87,7 +87,8 @@ install:
   
 # Build and install ETISS 
 before_script:
-  - dir /C/ProgramData/chocolatey/lib/llvm
+  - echo ${Dep_dir}/toolchain
+  - dir ${Dep_dir}/toolchain
   - cd ${TRAVIS_BUILD_DIR}
   - mkdir build_dir && cd build_dir
   #For linux
