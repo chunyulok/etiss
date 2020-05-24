@@ -102,7 +102,7 @@ before_script:
   - cmake -A x64 -DBoost_USE_STATIC_LIBS=ON -DBOOST_ROOT="C:\local" -DBOOST_INCLUDEDIR="C:\local\boost_1_68_0" -DBOOST_LIBRARYDIR="C:\local\boost_1_68_0\stage\lib" -DLLVM_DIR="C:ProgramData\chocolatey\lib" -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..
   - cmake --build . 
   - cmake --build . --target doc > /dev/null
-  - cmake --build . --target install
+  - cmake --build . --config Release --target install
 
 script:
   - cd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv
