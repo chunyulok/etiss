@@ -81,11 +81,18 @@ install:
       travis_retry wget https://releases.llvm.org/7.0.1/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04.tar.xz;
       llvm_701="clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04";
       tar -xf ${llvm_701}.tar.xz --directory ${Dep_dir}/JIT;
+    fi
+  -
+    if [ "$TRAVIS_OS_NAME" = "windowa" ]; then	
+      travis_retry wget https://releases.llvm.org/7.0.1/LLVM-7.0.1-win64.exe.tar.xz;
+      llvm_701="clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04";
+      tar -xf ${llvm_701}.tar.xz --directory ${Dep_dir}/JIT;
     fi 
 
   
 # Build and install ETISS 
 before_script:
+  - dir /C/ProgramData/chocolatey/bin
   - cd ${TRAVIS_BUILD_DIR}
   - mkdir build_dir && cd build_dir
   #For linux
