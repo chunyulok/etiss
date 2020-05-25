@@ -61,7 +61,6 @@ install:
   - PATH=${Dep_dir}/cmake/${Cmake_version16}:${Dep_dir}/cmake/${Cmake_version16}/bin:$PATH
   - dir ${Dep_dir}/cmake/${Cmake_version16}/bin
   - wget https://sourceforge.net/projects/gnuwin32/files/make/3.81/make-3.81-bin.zip
-  - upzip make-3.81-bin.zip -d ${Dep_dir}/cmake
   
   #Install, extract Riscv64 to directory 
   - 
