@@ -1,7 +1,7 @@
 set(CMAKE_SYSTEM_NAME Generic)
 set(CMAKE_SYSTEM_PROCESSOR Pulpino)
 
-IF(WIN632)
+IF(WIN32)
     set(EXE_EXT ".exe")
     set(DEFAULT_BASENAME "riscv64-unknown-elf")
 ELSE()
