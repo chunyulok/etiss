@@ -55,8 +55,8 @@ install:
       PATH=${Dep_dir}/cmake:${Dep_dir}/cmake/bin:$PATH;
     fi
   
-  - wget https://cmake.org/files/v3.16/cmake-3.16.2-win64-x64.zip > /dev/null
-  - Cmake_version16="cmake-3.16.2-win64-x64"
+  - wget https://cmake.org/files/v3.16/cmake-3.16.2-win32-x86.zip > /dev/null
+  - Cmake_version16="cmake-3.16.2-win32-x86"
   - unzip ${Cmake_version16}.zip -d ${Dep_dir}/cmake > /dev/null
   - PATH=${Dep_dir}/cmake/${Cmake_version16}:${Dep_dir}/cmake/${Cmake_version16}/bin:$PATH
   - dir ${Dep_dir}/cmake/${Cmake_version16}/bin
@@ -112,7 +112,7 @@ script:
   - cd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv
   - mkdir build
   - cd build
-  - cmake -G "Unix Makefiles" -DCMAKE_MAKE_PROGRAM=X:${Dep_dir}/cmake/bin/make.exe -DRISCV_ELF_GCC_PREFIX="${Dep_dir}/toolchain/${RISC_V64}" -DRISCV_ELF_GCC_BASENAME="riscv64-unknown-elf ..
+  - cmake -G "Unix Makefiles" -DCMAKE_MAKE_PROGRAM=X:${Dep_dir}/cmake/bin/make.exe -DRISCV_ELF_GCC_PREFIX="${Dep_dir}/toolchain/${RISC_V64}" -DRISCV_ELF_GCC_BASENAME="riscv64-unknown-elf" ..
   - cmake --build .
   - cd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv_cpp
   - mkdir build
