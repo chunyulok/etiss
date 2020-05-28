@@ -43,7 +43,7 @@ echo -e \
 if(WIN32)
   VP_EXE="${ETISS_DIR}/examples/bare_etiss_processor/build/main"
 else()
-  VP_EXE="C:\Users\travis\build\chunyulok\etiss\build_dir\installed\examples\bare_etiss_processor\build\Release\main.exe"
+  VP_EXE="${ETISS_DIR}/examples/bare_etiss_processor/build/main/Release/main.exe"
 
 USE_GDB=0
 USE_TGDB=0
