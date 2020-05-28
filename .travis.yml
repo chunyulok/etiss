@@ -64,6 +64,7 @@ install:
       dir ${Dep_dir}/cmake/${Cmake_version16}/bin;
       wget https://sourceforge.net/projects/gnuwin32/files/make/3.81/make-3.81-bin.zip;
       make_bin="make-3.81-bin";
+      unzip ${make_bin}.zip -d ${Dep_dir}/gmake;
       wget https://sourceforge.net/projects/gnuwin32/files/make/3.81/make-3.81-dep.zip;
       make_dep="make-3.81-dep";
       unzip ${make_dep}.zip -d ${Dep_dir}/gmake;
