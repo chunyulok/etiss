@@ -65,11 +65,11 @@ install:
       wget https://sourceforge.net/projects/gnuwin32/files/make/3.81/make-3.81-bin.zip;
       make_bin="make-3.81-bin";
       wget https://sourceforge.net/projects/gnuwin32/files/make/3.81/make-3.81-dep.zip;
-      make_dep="make-3.81-bin;
+      make_dep="make-3.81-dep";
       unzip ${make_dep}.zip -d ${Dep_dir}/gmake;
       wget https://sourceforge.net/projects/gnuwin32/files/make/3.81/make-3.81-src.zip;
-      make_source="make-3.81-source;
-      unzip ${make_source}.zip -d ${Dep_dir}/gmake;
+      make_src="make-3.81-src";
+      unzip ${make_src}.zip -d ${Dep_dir}/gmake;
     fi 
 
   #Install, extract Riscv64 to directory 	
