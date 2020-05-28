@@ -128,6 +128,7 @@ script:
       cd build;
       cmake -DRISCV_ELF_GCC_PREFIX="${Dep_dir}/toolchain/${RISC_V64}" -DRISCV_ELF_GCC_BASENAME="riscv64-unknown-elf" ..;
       make;
+      ls ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/build;
       cd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv_cpp;
       mkdir build;
       cd build;
