@@ -63,8 +63,13 @@ install:
       PATH=${Dep_dir}/cmake/${Cmake_version16}:${Dep_dir}/cmake/${Cmake_version16}/bin:$PATH;
       dir ${Dep_dir}/cmake/${Cmake_version16}/bin;
       wget https://sourceforge.net/projects/gnuwin32/files/make/3.81/make-3.81-bin.zip;
-      make="make-3.81-bin";
-      unzip ${make}.zip -d ${Dep_dir}/gmake;
+      make_bin="make-3.81-bin";
+      wget https://sourceforge.net/projects/gnuwin32/files/make/3.81/make-3.81-dep.zip;
+      make_dep="make-3.81-bin:
+      unzip ${make_dep}.zip -d ${Dep_dir}/gmake;
+      wget https://sourceforge.net/projects/gnuwin32/files/make/3.81/make-3.81-src.zip;
+      make_source="make-3.81-source:
+      unzip ${make_source}.zip -d ${Dep_dir}/gmake;
     fi 
 
   #Install, extract Riscv64 to directory 	
@@ -142,7 +147,6 @@ script:
   - mkdir build
   - cd build
   - cmake -G "MinGW Makefiles" -DCMAKE_MAKE_PROGRAM=${Dep_dir}/gmake/bin/make.exe -DRISCV_ELF_GCC_PREFIX="${Dep_dir}/toolchain/${RISC_V64}" -DRISCV_ELF_GCC_BASENAME="riscv64-unknown-elf" ..
-  - make
  
 
 
