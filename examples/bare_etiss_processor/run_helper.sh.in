@@ -40,10 +40,10 @@ echo -e \
   "sw_binary_rom=${TARGETSW_PATH_ROM}\n" \
     >> $DYN_INI
 
-if [WIN32]
-  VP_EXE="${ETISS_DIR}/examples/bare_etiss_processor/build/main"
+if [WIN32]; then
+	VP_EXE="${ETISS_DIR}/examples/bare_etiss_processor/build/main"
 else
-  VP_EXE="${ETISS_DIR}/examples/bare_etiss_processor/build/main/Release/main.exe"
+	VP_EXE="${ETISS_DIR}/examples/bare_etiss_processor/build/main/Release/main.exe"
 
 USE_GDB=0
 USE_TGDB=0
