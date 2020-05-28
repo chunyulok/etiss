@@ -138,6 +138,7 @@ script:
       mkdir build && cd build;
       cmake ..;
       make;
+      ls home/travis/build/chunyulok/etiss/build_dir/installed/examples/bare_etiss_processor/build;
       cd ..;
       ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/build/riscv_example;
       ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/build/riscv_example gcc; 
