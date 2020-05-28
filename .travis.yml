@@ -69,9 +69,9 @@ install:
 
   #Install, extract Riscv64 to directory 
 	
-  - wget --no-check-certificate https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz;
-  - RISC_V64="riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14";
-  - tar -zxf ${RISC_V64}.tar.gz --directory ${Dep_dir}/toolchain;
+  - wget --no-check-certificate https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz
+  - RISC_V64="riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14"
+  - tar -zxf ${RISC_V64}.tar.gz --directory ${Dep_dir}/toolchain
 
 
   #Install, extract llvm(not working yet) 
