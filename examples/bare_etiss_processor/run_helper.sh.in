@@ -3,6 +3,8 @@
 # Config
 ETISS_DIR=@CMAKE_INSTALL_PREFIX@/
 
+OS=$(uname -s)
+
 
 # Clear tmp file
 DYN_INI=/tmp/etiss_dynamic.ini
@@ -40,7 +42,11 @@ echo -e \
   "sw_binary_rom=${TARGETSW_PATH_ROM}\n" \
     >> $DYN_INI
 
-VP_EXE="${ETISS_DIR}/examples/bare_etiss_processor/build/Release/main.exe"
+if [ "${OS}" = "Windows" ]; then
+	VP_EXE="${ETISS_DIR}/examples/bare_etiss_processor/build/Release/main.exe"
+elif [ "${OS}" = "Linux" ]; then
+	VP_EXE="${ETISS_DIR}/examples/bare_etiss_processor/build/main"
+fi	
 
 USE_GDB=0
 USE_TGDB=0
