@@ -105,9 +105,7 @@ if [ "${OS}" = "Linux" ]; then
 	ARGS="-i${ETISS_DIR}/examples/bare_etiss_processor/base.ini -i${DYN_INI}"
 if [ "${OS}" = "Windows" ]; then
     ARGS="${ETISS_DIR}/examples/bare_etiss_processor/base.ini ${DYN_INI}"
-
-
-
+fi	
 
 if [ "${USE_TGDB}" -eq 1 ]; then
     if [ "${DO_NOT_ATTACH}" -eq 0 ]; then
