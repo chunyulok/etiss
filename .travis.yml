@@ -112,7 +112,7 @@ before_script:
       make install;
     fi  
   #For windows
-  - cmake -A x64 -DCMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR} -DBoost_USE_STATIC_LIBS=ON -DBOOST_ROOT="C:\local" -DBOOST_INCLUDEDIR="C:\local\boost_1_68_0" -DLLVM_DIR="/C/ProgramData/chocolatey/lib/llvm" -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..
+  - cmake -A x64 -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=${CMAKE_BINARY_DIR} -DBoost_USE_STATIC_LIBS=ON -DBOOST_ROOT="C:\local" -DBOOST_INCLUDEDIR="C:\local\boost_1_68_0" -DLLVM_DIR="/C/ProgramData/chocolatey/lib/llvm" -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..
   - cmake --build . --config Release
   - cmake --build . --target doc > /dev/null
   - cmake --build . --target install --config Release
