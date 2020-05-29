@@ -158,7 +158,7 @@ script:
   - cmake --build . --config Release
   - cd ..
   - LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${TRAVIS_BUILD_DIR}/build_dir/build_dir/Release/ETISS.dll
-  - ldd /Users/travis/build/chunyulok/etiss/build_dir/installed/examples/bare_etiss_processor/build/Release/main.exe
+  - ldd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/bare_etiss_processor/build/Release/main.exe
   - sh run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/build/riscv_example
 
  
