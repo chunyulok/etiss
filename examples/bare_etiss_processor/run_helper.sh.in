@@ -103,7 +103,7 @@ echo -e "[JIT]\n type=${JIT}" >> $DYN_INI
 
 if [ "${OS}" = "Linux" ]; then
 	ARGS="-i${ETISS_DIR}/examples/bare_etiss_processor/base.ini -i${DYN_INI}"
-if [ "${OS}" = "Windows" ]; then
+elif [ "${OS}" = "Windows" ]; then
     ARGS="${ETISS_DIR}/examples/bare_etiss_processor/base.ini ${DYN_INI}"
 fi	
 
