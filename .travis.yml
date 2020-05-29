@@ -154,8 +154,8 @@ script:
   - dir ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/build
   - cd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/bare_etiss_processor
   - mkdir build && cd build
-  - cmake -A x64 -DBoost_USE_STATIC_LIBS=ON -DBOOST_ROOT="C:\local" -DBOOST_INCLUDEDIR="C:\local\boost_1_68_0" ..
-  - cmake --build . --config Release
+  - cmake -A x64 -G "Unix Makefiles" -DCMAKE_MAKE_PROGRAM=${Dep_dir}/gmake/bin/make.exe -DBoost_USE_STATIC_LIBS=ON -DBOOST_ROOT="C:\local" -DBOOST_INCLUDEDIR="C:\local\boost_1_68_0" ..
+  - cmake --build . 
   - cd ..
   - sh run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/build/riscv_example
 
