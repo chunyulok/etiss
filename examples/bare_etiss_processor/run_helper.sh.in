@@ -101,7 +101,7 @@ echo -e "[JIT]\n type=${JIT}" >> $DYN_INI
 # Call
 
 
-ARGS="${ETISS_DIR}/examples/bare_etiss_processor/base.ini ${DYN_INI}"
+ARGS="-i${ETISS_DIR}/examples/bare_etiss_processor/base.ini -i${DYN_INI}"
 
 
 
