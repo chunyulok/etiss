@@ -43,7 +43,7 @@ echo -e \
     >> $DYN_INI
 
 if [ "${OS}" = "Windows" ]; then
-	VP_EXE="${ETISS_DIR}/examples/bare_etiss_processor/build/Release/main.exe"
+	VP_EXE="${ETISS_DIR}/examples/bare_etiss_processor/build/Debug/main.exe"
 elif [ "${OS}" = "Linux" ]; then
 	VP_EXE="${ETISS_DIR}/examples/bare_etiss_processor/build/main"
 fi	
