@@ -42,11 +42,9 @@ echo -e \
   "sw_binary_rom=${TARGETSW_PATH_ROM}\n" \
     >> $DYN_INI
 
-if [ "${OS}" = "Linux" ]; then
-	VP_EXE="${ETISS_DIR}/examples/bare_etiss_processor/build/main"
-elif [ "${OS}" = "Windows" ]; then
-	VP_EXE="${ETISS_DIR}/examples/bare_etiss_processor/build/main.exe"
-fi	
+
+VP_EXE="${ETISS_DIR}/examples/bare_etiss_processor/build/main.exe"
+
 
 
 USE_GDB=0
@@ -103,7 +101,7 @@ echo -e "[JIT]\n type=${JIT}" >> $DYN_INI
 # Call
 
 
-ARGS="-i${ETISS_DIR}/examples/bare_etiss_processor/base.ini -i${DYN_INI}"
+ARGS="${ETISS_DIR}/examples/bare_etiss_processor/base.ini ${DYN_INI}"
 
 
 
