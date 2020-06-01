@@ -35,7 +35,7 @@ before_install:
       ./bootstrap.bat;
       ./b2.exe --with-filesystem --with-system;
       cd ${TRAVIS_BUILD_DIR};
-      dir /C/ProgramData/chocolatey/lib/llvm; 
+      dir /C/ProgramData/chocolatey/lib/llvm.nupkg; 
     fi
 
 install:
