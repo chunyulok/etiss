@@ -20,7 +20,6 @@ addons:
       - libboost-filesystem-dev
       - libtinfo-dev
       - zlib1g-dev
-      - unzip
 
 before_install:
   - 
@@ -114,7 +113,7 @@ before_script:
   #For windows
   -
     if [ "$TRAVIS_OS_NAME" = "windows" ]; then
-      cmake -A x64 -DBoost_USE_STATIC_LIBS=ON -DBOOST_ROOT="C:\local" -DBOOST_INCLUDEDIR="C:\local\boost_1_68_0" -DLLVM_DIR="/C/ProgramData/chocolatey/lib/llvm.nupkg" -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..;
+      cmake -A x64 -DBoost_USE_STATIC_LIBS=ON -DBOOST_ROOT="C:\local" -DBOOST_INCLUDEDIR="C:\local\boost_1_68_0" -DLLVM_DIR="/C/ProgramData/chocolatey/lib/llvm.nuspec" -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..;
       cmake --build . --config Release;
       cmake --build . --target doc
       cmake --build . --target install --config Release;
