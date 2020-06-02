@@ -96,12 +96,10 @@ install:
       tar -xf ${llvm_701}.tar.xz --directory ${Dep_dir}/JIT;
     fi
 
-  -
-    if [ "$TRAVIS_OS_NAME" = "windows" ]; then
-      cd ${Dep_dir}/JIT;
-      travis_retry wget https://releases.llvm.org/7.0.1/LLVM-7.0.1-win64.exe;
-      dir  ${Dep_dir}/JIT;
-    fi
+ 
+  - cd ${Dep_dir}/JIT
+  - travis_retry wget https://releases.llvm.org/7.0.1/LLVM-7.0.1-win64.exe
+  - dir ${Dep_dir}/JIT
 
   
 # Build and install ETISS 
