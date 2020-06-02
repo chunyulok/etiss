@@ -99,7 +99,7 @@ install:
   -
     if [ "$TRAVIS_OS_NAME" = "windows" ]; then
       cd ${Dep_dir}/JIT;
-      travis-retry wget https://releases.llvm.org/7.0.1/LLVM-7.0.1-win64.exe;
+      travis_retry wget https://releases.llvm.org/7.0.1/LLVM-7.0.1-win64.exe;
       dir  ${Dep_dir}/JIT;
     fi
 
