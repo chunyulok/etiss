@@ -95,6 +95,13 @@ install:
       llvm_701="clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04";
       tar -xf ${llvm_701}.tar.xz --directory ${Dep_dir}/JIT;
     fi
+
+  -
+    if [ "$TRAVIS_OS_NAME" = "windows" ]; then
+      travis-retry wget –P  ${Dep_dir}/JIT https://releases.llvm.org/7.0.1/LLVM-7.0.1-win64.exe;
+      dir  ${Dep_dir}/JIT;
+    fi
+
   
 # Build and install ETISS 
 before_script:
