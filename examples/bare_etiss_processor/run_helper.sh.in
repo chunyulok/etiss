@@ -43,7 +43,7 @@ echo -e \
     >> $DYN_INI
 
 
-VP_EXE="${ETISS_DIR}/examples/bare_etiss_processor/build/main"
+VP_EXE="${ETISS_DIR}/examples/bare_etiss_processor/build/Debug/main.exe"
 
 
 
