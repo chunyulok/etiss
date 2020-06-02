@@ -7,7 +7,7 @@ OS=$(uname -s)
 
 
 # Clear tmp file
-DYN_INI=${TEMP}/etiss_dynamic.ini
+DYN_INI="C:\Users\travis\AppData\Local\Temp\etiss_dynamic.ini"
 echo "" > $DYN_INI
 
 
@@ -43,7 +43,7 @@ echo -e \
     >> $DYN_INI
 
 
-VP_EXE="${ETISS_DIR}/examples/bare_etiss_processor/build/main"
+VP_EXE="${ETISS_DIR}/examples/bare_etiss_processor/build/Debug/main.exe"
 
 
 
