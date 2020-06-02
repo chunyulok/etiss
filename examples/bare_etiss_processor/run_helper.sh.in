@@ -9,7 +9,6 @@ OS=$(uname -s)
 # Clear tmp file
 DYN_INI="/C/Users/travis/AppData/Local/Temp/etiss_dynamic.ini"
 echo "" > $DYN_INI
-cat $DYN_INI
 
 # Args
 if [ "$#" -lt 1 ]; then
@@ -97,7 +96,7 @@ if [ "${DO_TRACE}" -eq 1 ]; then
 fi
 echo -e "[JIT]\n type=${JIT}" >> $DYN_INI
 
-
+cat $DYN_INI
 
 # Call
 ARGS="-i${ETISS_DIR}/examples/bare_etiss_processor/base.ini -i${DYN_INI}"
