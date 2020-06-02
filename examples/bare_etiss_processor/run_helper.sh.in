@@ -7,7 +7,8 @@ OS=$(uname -s)
 
 
 # Clear tmp file
-DYN_INI=/tmp/etiss_dynamic.ini
+TEMP=${ETISS_DIR}/tmp
+DYN_INI=${TEMP}/etiss_dynamic.ini
 echo "" > $DYN_INI
 
 
