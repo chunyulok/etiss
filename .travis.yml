@@ -100,6 +100,12 @@ install:
   - cd ${Dep_dir}/JIT
   - travis_retry wget https://releases.llvm.org/7.0.1/LLVM-7.0.1-win64.exe
   - dir ${Dep_dir}/JIT
+  - cd  ${Dep_dir}/JIT/LLVM-7.0.1-win64.exe
+  - mkdir mybuilddir
+  - cd mybuilddir
+  - cmake -DCMAKE_INSTALL_PREFIX=/tmp/llvm -P cmake_install.cmake ..
+  - cmake --build .
+  - cmake --build . --target install
   - echo "test" > /tmp/test.txt 
   - cat /tmp/test.txt
 
