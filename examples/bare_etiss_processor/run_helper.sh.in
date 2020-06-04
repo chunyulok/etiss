@@ -94,7 +94,6 @@ if [ "${DO_TRACE}" -eq 1 ]; then
 fi
 echo -e "[JIT]\n type=${JIT}" >> $DYN_INI
 
-cat $DYN_INI
 
 # Call
 ARGS="-i${ETISS_DIR}/examples/bare_etiss_processor/base.ini -i${DYN_INI}"
@@ -107,4 +106,5 @@ if [ "${USE_GDB}" -eq 1 ]; then
     gdb --args ${VP_EXE} ${ARGS}
 else
     ${VP_EXE} ${ARGS}
+    cat $DYN_INI
 fi
