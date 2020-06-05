@@ -167,7 +167,7 @@ script:
   - cmake --build . 
   - cd ..
   - PATH=${TRAVIS_BUILD_DIR}/build_dir/installed/lib:$PATH #try PATH=%PATH%;C:\tomlab\shared
-  - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/build/riscv_example vp
+  - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/build/riscv_example
 
  
 
