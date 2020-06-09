@@ -55,7 +55,7 @@ before_install:
 install:
   - cd ${TRAVIS_BUILD_DIR}
   - mkdir build_dir && cd build_dir
-  - cmake -A x64 -DBoost_USE_STATIC_LIBS=ON -DBOOST_INCLUDEDIR="C:\local\boost_1_68_0" -DLLVM_EXPORT_SYMBOLS_FOR_PLUGINS=On -DLLVM_DIR="/C/Users/travis/AppData/Local/Temp/chocolatey/llvm/9.0.0/LLVM-9.0.0-win64.exe" -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..
+  - cmake -A x64 -DBoost_USE_STATIC_LIBS=ON -DBOOST_INCLUDEDIR="C:\local\boost_1_68_0" -DLLVM_DIR="/C/Users/travis/AppData/Local/Temp/chocolatey/llvm/9.0.0/LLVM-9.0.0-win64.exe" -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..
   - cmake --build . --config Release
   - cmake --build . --target doc
   - cmake --build . --target install --config Release
@@ -70,7 +70,7 @@ before_script:
 Script: 
   - cd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/bare_etiss_processor
   - mkdir build && cd build
-  - cmake cmake -A x64 -DBoost_USE_STATIC_LIBS=ON ..
+  - cmake cmake -A x64 -DBoost_USE_STATIC_LIBS=ON -DBOOST_INCLUDEDIR="C:\local\boost_1_68_0" ..
   - cmake --build .
   - cd ..
   - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/build/riscv_example  
