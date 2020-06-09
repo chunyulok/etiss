@@ -9,7 +9,8 @@ os:
   - windows
 
 # Install packages
-addons:
+before_install:
+#window packages
   - choco install doxygen.install;
   - choco install graphviz;
   - choco install unzip;
@@ -21,8 +22,6 @@ addons:
   - ./b2.exe --with-filesystem --with-system;
   - cd ${TRAVIS_BUILD_DIR};
   - dir /C/ProgramData/chocolatey;
-
-before_install:
 #making directory to store installed dependencies: cmake, toolchain, JIT
   - mkdir -p ${TRAVIS_BUILD_DIR}/deps
   - Dep_dir="${TRAVIS_BUILD_DIR}/deps"
@@ -55,7 +54,7 @@ before_install:
 install:
   - cd ${TRAVIS_BUILD_DIR}
   - mkdir build_dir && cd build_dir
-  - cmake -A x64 -DBoost_USE_STATIC_LIBS=ON -DBOOST_ROOT="C:\local" -DBOOST_INCLUDEDIR="C:\local\boost_1_68_0" -DLLVM_DIR="/C/Users/travis/AppData/Local/Temp/chocolatey/llvm/9.0.0/LLVM-9.0.0-win64.exe" -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..
+  - cmake -A x64 -DBoost_USE_STATIC_LIBS=ON -DLLVM_DIR="/C/Users/travis/AppData/Local/Temp/chocolatey/llvm/9.0.0/LLVM-9.0.0-win64.exe" -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..
   - cmake --build . --config Release
   - cmake --build . --target doc
   - cmake --build . --target install --config Release
