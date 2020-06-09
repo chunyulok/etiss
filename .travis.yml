@@ -5,6 +5,9 @@ dist: bionic
 language:
     - c++
 
+os: 
+  - windows
+
 # Install packages
 addons:
   - choco install doxygen.install;
