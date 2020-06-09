@@ -5,6 +5,7 @@ dist: bionic
 language:
     - c++
 
+os: 
 # Install packages
 addons:
   apt:
@@ -34,10 +35,7 @@ before_install:
   - wget https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz
   - RISC_V64="riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14"
   - tar -zxf ${RISC_V64}.tar.gz --directory ${Dep_dir}/toolchain
-  #Install, extract llvm(not working yet) 
-  - travis_retry wget https://releases.llvm.org/7.0.1/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04.tar.xz
-  - llvm_701="clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04"
-  - tar -xf ${llvm_701}.tar.xz --directory ${Dep_dir}/JIT 
+  #Install, extract llvm(not working yet) T 
 
   
 # Build and install ETISS 
@@ -79,6 +77,6 @@ deploy:
   provider: pages
   skip_cleanup: true
   local_dir: build_dir/doc/html
-  github_token: $GH_REPO_TOKEN
+  github_token: $GITHUB_TOKEN
   on:
     branch: master
