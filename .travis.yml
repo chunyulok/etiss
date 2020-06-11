@@ -69,7 +69,7 @@ before_script:
 Script: 
   - cd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/bare_etiss_processor
   - mkdir build && cd build
-  - cmake -DBoost_USE_STATIC_LIBS=ON ..
+  - cmake -A x64 -DBoost_USE_STATIC_LIBS=ON ..
   - cmake --build .
   - cd ..
   - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/build/riscv_example  
