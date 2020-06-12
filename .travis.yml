@@ -22,7 +22,7 @@ before_install:
   - mkdir -p ${TRAVIS_BUILD_DIR}/deps
   - Dep_dir="${TRAVIS_BUILD_DIR}/deps"
   - mkdir -p ${Dep_dir}/cmake #directory for Cmake version 3.16.2
-  - mkdir -p ${Dep_dir}/toolchain #directly for Riscv64 toolchain
+  - mkdir -p ${Dep_dir}/toolchain #directory for Riscv64 toolchain
   - mkdir -p ${Dep_dir}/JIT #directory for LLVM
 #Wget all dependencies
   #Install , extract cmake to directory
