@@ -12,7 +12,10 @@ before_install:
   - choco install doxygen.install;
   - choco install graphviz;
   - choco install unzip;
+<<<<<<< HEAD
   - choco install mingw; 
+=======
+>>>>>>> 9f60763fedc60fab6f0736a1e95f8101b5bcd630
   - wget https://dl.bintray.com/boostorg/release/1.68.0/source/boost_1_68_0.7z;
   - 7z x boost_1_68_0.7z -o/C/local;
   - cd "/C/local/boost_1_68_0";
