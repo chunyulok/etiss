@@ -31,7 +31,6 @@ before_install:
   - Cmake_version16="cmake-3.16.2-win32-x86"
   - unzip ${Cmake_version16}.zip -d ${Dep_dir}/cmake
   - PATH=${Dep_dir}/cmake/${Cmake_version16}:${Dep_dir}/cmake/${Cmake_version16}/bin:$PATH
-  - dir ${Dep_dir}/cmake/${Cmake_version16}/bin;
   - wget https://sourceforge.net/projects/gnuwin32/files/make/3.81/make-3.81-bin.zip
   - make_bin="make-3.81-bin"
   - unzip ${make_bin}.zip -d ${Dep_dir}/gmake
