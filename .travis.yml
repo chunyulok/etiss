@@ -29,7 +29,7 @@ before_install:
   #Install , extract cmake to directory
   - wget https://cmake.org/files/v3.16/cmake-3.16.2-win32-x86.zip > /dev/null
   - Cmake_version16="cmake-3.16.2-win32-x86"
-  - unzip ${Cmake_version16}.zip -d ${Dep_dir}/cmake > /dev/null
+  - unzip ${Cmake_version16}.zip -d ${Dep_dir}/cmake
   - PATH=${Dep_dir}/cmake/${Cmake_version16}:${Dep_dir}/cmake/${Cmake_version16}/bin:$PATH
   - dir ${Dep_dir}/cmake/${Cmake_version16}/bin;
   - wget https://sourceforge.net/projects/gnuwin32/files/make/3.81/make-3.81-bin.zip
