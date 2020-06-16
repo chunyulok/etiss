@@ -19,7 +19,7 @@ before_install:
   - ./b2.exe --with-filesystem --with-system;
   - cd ${TRAVIS_BUILD_DIR};
   - dir /C/ProgramData/chocolatey;
-#making directory to store installed dependencies: cmake, toolchain, JIT
+#making directory to store installed dependencies: CMake, Maek, Toolchain, JIT
   - mkdir -p ${TRAVIS_BUILD_DIR}/deps
   - Dep_dir="${TRAVIS_BUILD_DIR}/deps"
   - mkdir -p ${Dep_dir}/cmake #directory for Cmake version 3.16.2
