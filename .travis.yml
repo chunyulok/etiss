@@ -49,8 +49,9 @@ before_install:
 # Build and install ETISS 
 install:
   - cd ${TRAVIS_BUILD_DIR}
-  - mkdir build_dir && cd build_dir
+  - mkdir build && cd build
   - cmake -A x64 -DBoost_USE_STATIC_LIBS=ON -DLLVM_DIR="/C/Users/travis/AppData/Local/Temp/chocolatey/llvm/9.0.0/LLVM-9.0.0-win64.exe" -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..
+  - dir ${TRAVIS_BUILD_DIR}_build
   - cmake --build . --config release
   - cmake --build . --target doc
   - cmake --build . --target install
@@ -59,6 +60,7 @@ before_script:
   - cd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv
   - mkdir build && cd build
   - cmake -G "Unix Makefiles" -DCMAKE_MAKE_PROGRAM=${Dep_dir}/gmake/bin/make.exe -DRISCV_ELF_GCC_PREFIX="${Dep_dir}/toolchain/${RISC_V64}" -DRISCV_ELF_GCC_BASENAME="riscv64-unknown-elf" ..
+  - ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/build
   - cmake --build .
 
 Script: 
