@@ -57,7 +57,7 @@ before_script:
   - mkdir build
   - cd build
   - cmake -G "Unix Makefiles" -DCMAKE_MAKE_PROGRAM=${Dep_dir}/gmake/bin/make.exe -DRISCV_ELF_GCC_PREFIX="${Dep_dir}/toolchain/${RISC_V64}" -DRISCV_ELF_GCC_BASENAME="riscv64-unknown-elf" ..
-   - cmake --build .
+a - cmake --build .
 
  
    
