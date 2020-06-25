@@ -64,8 +64,8 @@ Script:
   - cmake cmake -A x64 -DBoost_USE_STATIC_LIBS=ON ..
   - cmake --build .
   - cd ..
-  - PATH=${TRAVIS_BUILD_DIR}/build_dir/installed/lib:$PATH
-  - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/build/riscv_example 
+#  - PATH=${TRAVIS_BUILD_DIR}/build_dir/installed/lib:$PATH
+#  - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/build/riscv_example 
 
  
    
