@@ -28,11 +28,6 @@ before_install:
       choco install doxygen.install;
       choco install graphviz;
       choco install unzip;
-      wget https://dl.bintray.com/boostorg/release/1.68.0/source/boost_1_68_0.7z;
-      7z x boost_1_68_0.7z -o/C/local;
-      cd "/C/local/boost_1_68_0";
-      ./bootstrap.bat;
-      ./b2.exe --with-filesystem --with-system;
     fi
   - mkdir -p ${TRAVIS_BUILD_DIR}/deps
   - Dep_dir="${TRAVIS_BUILD_DIR}/deps"
@@ -41,6 +36,15 @@ before_install:
   - mkdir -p ${Dep_dir}/toolchain #directly for Riscv64 toolchain
   - mkdir -p ${Dep_dir}/JIT #directory for LLVM
 #Wget all dependencies
+  #Install , extract boost to directory
+  - 
+    if [ "$TRAVIS_OS_NAME" = "windows" ]; then 
+      wget https://dl.bintray.com/boostorg/release/1.68.0/source/boost_1_68_0.7z;
+      7z x boost_1_68_0.7z -o/C/local;
+      cd "/C/local/boost_1_68_0";
+      ./bootstrap.bat;
+      ./b2.exe --with-filesystem --with-system;
+    fi
   #Install , extract cmake to directory
   -
     if [ "$TRAVIS_OS_NAME" = "linux" ]; then 
