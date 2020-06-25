@@ -83,8 +83,8 @@ before_install:
   - 
     if [ "$TRAVIS_OS_NAME" = "windows" ]; then
       wget --no-check-certificate https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-w64-mingw32.zip; > /dev/null
-      RISC_V64="riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-w64-mingw32";
-      unzip ${RISC_V64}.zip -d ${Dep_dir}/toolchain;
+      RISC_V64="riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-w64-mingw32"; 
+      unzip ${RISC_V64}.zip -d ${Dep_dir}/toolchain; > /dev/null
     fi	
 
   #Install, extract llvm(not working yet) 
@@ -94,13 +94,6 @@ before_install:
       llvm_701="clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04";
       tar -xf ${llvm_701}.tar.xz --directory ${Dep_dir}/JIT;
     fi
-
- 
-  - cd ${Dep_dir}/JIT
-  - travis_retry wget https://releases.llvm.org/7.0.1/LLVM-7.0.1-win64.exe
-  - dir ${Dep_dir}/JIT
-  - echo "test" > /tmp/test.txt 
-  - cat /tmp/test.txt
 
   
 # Build and install ETISS 
