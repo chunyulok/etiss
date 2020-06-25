@@ -23,14 +23,6 @@ addons:
 
 before_install:
 #making directory to store installed dependencies: cmake, toolchain, JIT
-  - mkdir -p ${TRAVIS_BUILD_DIR}/deps
-  - Dep_dir="${TRAVIS_BUILD_DIR}/deps"
-  - mkdir -p ${Dep_dir}/cmake #directory for Cmake version 3.16.2
-  - mkdir -p ${Dep_dir}/gmake
-  - mkdir -p ${Dep_dir}/toolchain #directly for Riscv64 toolchain
-  - mkdir -p ${Dep_dir}/JIT #directory for LLVM
-#Wget all dependencies
-  #Install , extract cmake to directory
   - 
     if [ "$TRAVIS_OS_NAME" = "windows" ]; then
       choco install doxygen.install;
@@ -45,6 +37,14 @@ before_install:
       cd ${TRAVIS_BUILD_DIR};
       dir /C/ProgramData/chocolatey;
     fi
+  - mkdir -p ${TRAVIS_BUILD_DIR}/deps
+  - Dep_dir="${TRAVIS_BUILD_DIR}/deps"
+  - mkdir -p ${Dep_dir}/cmake #directory for Cmake version 3.16.2
+  - mkdir -p ${Dep_dir}/gmake
+  - mkdir -p ${Dep_dir}/toolchain #directly for Riscv64 toolchain
+  - mkdir -p ${Dep_dir}/JIT #directory for LLVM
+#Wget all dependencies
+  #Install , extract cmake to directory
   -
     if [ "$TRAVIS_OS_NAME" = "linux" ]; then 
       wget https://cmake.org/files/v3.16/cmake-3.16.2-Linux-x86_64.sh;
@@ -156,7 +156,7 @@ script:
       cmake --build .;
     fi
   -
-    if [ "$TRAVIS_OS_NAME" = "linux" ]; then
+    if [ "$TRAVIS_OS_NAME" = "windows" ]; then
       cmake -A x64 -DBoost_USE_STATIC_LIBS=ON -DBOOST_ROOT="C:\local" -DBOOST_INCLUDEDIR="C:\local\boost_1_68_0" ..;
       make;
     fi
