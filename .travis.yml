@@ -1,5 +1,9 @@
 sudo: false
 
+os:
+ - linux
+ - windows
+
 dist: bionic
 
 language:
@@ -16,67 +20,159 @@ addons:
       - libboost-filesystem-dev
       - libtinfo-dev
       - zlib1g-dev
+  - 
+    if [ "$TRAVIS_OS_NAME" = "windows" ]; then
+      choco install doxygen.install;
+      choco install graphviz;
+      choco install unzip;
+      choco install llvm --force; 
+      wget https://dl.bintray.com/boostorg/release/1.68.0/source/boost_1_68_0.7z;
+      7z x boost_1_68_0.7z -o/C/local;
+      cd "/C/local/boost_1_68_0";
+      ./bootstrap.bat;
+      ./b2.exe --with-filesystem --with-system;
+      cd ${TRAVIS_BUILD_DIR};
+      dir /C/ProgramData/chocolatey;
+    fi
 
 before_install:
 #making directory to store installed dependencies: cmake, toolchain, JIT
   - mkdir -p ${TRAVIS_BUILD_DIR}/deps
   - Dep_dir="${TRAVIS_BUILD_DIR}/deps"
   - mkdir -p ${Dep_dir}/cmake #directory for Cmake version 3.16.2
+  - mkdir -p ${Dep_dir}/gmake
   - mkdir -p ${Dep_dir}/toolchain #directly for Riscv64 toolchain
   - mkdir -p ${Dep_dir}/JIT #directory for LLVM
 #Wget all dependencies
   #Install , extract cmake to directory
-  - wget https://cmake.org/files/v3.16/cmake-3.16.2-Linux-x86_64.sh
-  - Cmake_version16="cmake-3.16.2-Linux-x86_64.sh"
-  - sh ${Cmake_version16} --prefix=${TRAVIS_BUILD_DIR}/deps/cmake --exclude-subdir
-  - PATH=${Dep_dir}/cmake:${Dep_dir}/cmake/bin:$PATH #hiding old version of Cmake
-  #Install, extract Riscv64 to directory 
-  - wget https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz
-  - RISC_V64="riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14"
-  - tar -zxf ${RISC_V64}.tar.gz --directory ${Dep_dir}/toolchain
+  -
+    if [ "$TRAVIS_OS_NAME" = "linux" ]; then 
+      wget https://cmake.org/files/v3.16/cmake-3.16.2-Linux-x86_64.sh;
+      Cmake_version16="cmake-3.16.2-Linux-x86_64.sh";
+      sh ${Cmake_version16} --prefix=${TRAVIS_BUILD_DIR}/deps/cmake --exclude-subdir;
+      PATH=${Dep_dir}/cmake:${Dep_dir}/cmake/bin:$PATH;
+    fi
+  
+  - 
+    if [ "$TRAVIS_OS_NAME" = "windows" ]; then  
+      wget https://cmake.org/files/v3.16/cmake-3.16.2-win32-x86.zip > /dev/null;
+      Cmake_version16="cmake-3.16.2-win32-x86";
+      unzip ${Cmake_version16}.zip -d ${Dep_dir}/cmake > /dev/null;
+      PATH=${Dep_dir}/cmake/${Cmake_version16}:${Dep_dir}/cmake/${Cmake_version16}/bin:$PATH;
+      dir ${Dep_dir}/cmake/${Cmake_version16}/bin;
+      wget https://sourceforge.net/projects/gnuwin32/files/make/3.81/make-3.81-bin.zip;
+      make_bin="make-3.81-bin";
+      unzip ${make_bin}.zip -d ${Dep_dir}/gmake;
+      wget https://sourceforge.net/projects/gnuwin32/files/make/3.81/make-3.81-dep.zip;
+      make_dep="make-3.81-dep";
+      unzip ${make_dep}.zip -d ${Dep_dir}/gmake;
+      wget https://sourceforge.net/projects/gnuwin32/files/make/3.81/make-3.81-src.zip;
+      make_src="make-3.81-src";
+      unzip ${make_src}.zip -d ${Dep_dir}/gmake;
+    fi 
+
+  #Install, extract Riscv64 to directory 	
+  - 
+    if [ "$TRAVIS_OS_NAME" = "linux" ]; then 	
+      wget --no-check-certificate https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz;
+      RISC_V64="riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14";
+      tar -zxf ${RISC_V64}.tar.gz --directory ${Dep_dir}/toolchain;
+    fi
+
+  - 
+    if [ "$TRAVIS_OS_NAME" = "windows" ]; then
+      wget --no-check-certificate https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-w64-mingw32.zip; > /dev/null
+      RISC_V64="riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-w64-mingw32";
+      unzip ${RISC_V64}.zip -d ${Dep_dir}/toolchain;
+    fi	
+
   #Install, extract llvm(not working yet) 
-  - travis_retry wget https://releases.llvm.org/7.0.1/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04.tar.xz
-  - llvm_701="clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04"
-  - tar -xf ${llvm_701}.tar.xz --directory ${Dep_dir}/JIT 
+  - 
+    if [ "$TRAVIS_OS_NAME" = "linux" ]; then	
+      travis_retry wget https://releases.llvm.org/7.0.1/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04.tar.xz;
+      llvm_701="clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04";
+      tar -xf ${llvm_701}.tar.xz --directory ${Dep_dir}/JIT;
+    fi
+
+ 
+  - cd ${Dep_dir}/JIT
+  - travis_retry wget https://releases.llvm.org/7.0.1/LLVM-7.0.1-win64.exe
+  - dir ${Dep_dir}/JIT
+  - echo "test" > /tmp/test.txt 
+  - cat /tmp/test.txt
 
   
 # Build and install ETISS 
 install:
+  - echo ${Dep_dir}/toolchain
   - cd ${TRAVIS_BUILD_DIR}
   - mkdir build_dir && cd build_dir
-  - cmake -DLLVM_DIR=${Dep_dir}/JIT/${llvm_701}/lib/cmake/llvm -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..
-  - make
-  - make doc
-  - make install
+  #For linux
+  -
+    if [ "$TRAVIS_OS_NAME" = "linux" ]; then
+      cmake -DLLVM_DIR=${Dep_dir}/JIT/${llvm_701}/lib/cmake/llvm -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..;
+      make;
+      make doc;
+      make install;
+    fi  
+  #For windows
+  -
+    if [ "$TRAVIS_OS_NAME" = "windows" ]; then
+      cmake -A x64 -DBoost_USE_STATIC_LIBS=ON -DBOOST_ROOT="C:\local" -DBOOST_INCLUDEDIR="C:\local\boost_1_68_0" -DLLVM_EXPORT_SYMBOLS_FOR_PLUGINS=On -DLLVM_DIR="/C/Users/travis/AppData/Local/Temp/chocolatey/llvm/9.0.0/LLVM-9.0.0-win64.exe" -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..;
+      cmake --build . --config Release;
+      cmake --build . --target doc;
+      cmake --build . --target install --config Release;
+    fi
 
 before_script:
   - cd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv
   - mkdir build && cd build
-  - cmake -DRISCV_ELF_GCC_PREFIX=${Dep_dir}/toolchain/${RISC_V64} -DRISCV_ELF_GCC_BASENAME=riscv64-unknown-elf ..
-  - make
-  - cd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv_cpp
-  - mkdir build && cd build
-  - cmake -DRISCV_ELF_GCC_PREFIX=${Dep_dir}/toolchain/${RISC_V64} -DRISCV_ELF_GCC_BASENAME=riscv64-unknown-elf ..
-  - make
+  -
+    if [ "$TRAVIS_OS_NAME" = "linux" ]; then
+      cmake -DRISCV_ELF_GCC_PREFIX="${Dep_dir}/toolchain/${RISC_V64}" -DRISCV_ELF_GCC_BASENAME="riscv64-unknown-elf" ..;
+      make;
+    fi
 
-Script: 
-  - cd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/bare_etiss_processor
+  -
+    if [ "$TRAVIS_OS_NAME" = "windows" ]; then
+      cmake -G "Unix Makefiles" -DCMAKE_MAKE_PROGRAM=${Dep_dir}/gmake/bin/make.exe -DRISCV_ELF_GCC_PREFIX="${Dep_dir}/toolchain/${RISC_V64}" -DRISCV_ELF_GCC_BASENAME="riscv64-unknown-elf" ..;
+      make;
+    fi
+
+  - cd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv_cpp;
   - mkdir build && cd build
-  - cmake ..
-  - make
-  - cd ..
-  - ldd ${TRAVIS_BUILD_DIR}/build_dir/installed/lib/plugins/libGCCJIT.so
-  - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/build/riscv_example  
-  - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv_cpp/build/riscv_example
-  - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/build/riscv_example gcc  
-  - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv_cpp/build/riscv_example gcc
-   
- 
+  -
+    if [ "$TRAVIS_OS_NAME" = "linux" ]; then
+      cmake -DRISCV_ELF_GCC_PREFIX="${Dep_dir}/toolchain/${RISC_V64}" -DRISCV_ELF_GCC_BASENAME="riscv64-unknown-elf" ..;
+      make;
+    fi  
+
+script:
+  cd ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/bare_etiss_processor;
+  mkdir build && cd build;
+  -
+    if [ "$TRAVIS_OS_NAME" = "linux" ]; then
+      cmake ..;
+      cmake --build .;
+    fi
+  -
+    if [ "$TRAVIS_OS_NAME" = "linux" ]; then
+      cmake -A x64 -DBoost_USE_STATIC_LIBS=ON -DBOOST_ROOT="C:\local" -DBOOST_INCLUDEDIR="C:\local\boost_1_68_0" ..;
+      make;
+    fi
+  - cd ..;
+  - PATH=${TRAVIS_BUILD_DIR}/build_dir/installed/lib:$PATH
+  - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/build/riscv_example
+#  - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv/build/riscv_example gcc; 
+#  - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv_cpp/build/riscv_example;
+#  - ./run_helper.sh ${TRAVIS_BUILD_DIR}/build_dir/installed/examples/SW/riscv_cpp/build/riscv_example gcc; 
+
+
 # Generate and deploy documentation
 deploy:
   provider: pages
   skip_cleanup: true
   local_dir: build_dir/doc/html
-  github_token: $GH_REPO_TOKEN
+  github_token: $GITHUB_TOKEN
   on:
     branch: master
