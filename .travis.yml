@@ -1,4 +1,4 @@
-sudo: false
+ sudo: false
 
 os:
  - linux
@@ -84,7 +84,7 @@ before_install:
     if [ "$TRAVIS_OS_NAME" = "windows" ]; then
       wget --no-check-certificate https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-w64-mingw32.zip > /dev/null;
       RISC_V64="riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-w64-mingw32"; 
-      unzip ${RISC_V64}.zip -d ${Dep_dir}/toolchain > /dev/null;
+      unzip ${RISC_V64}.zip -d ${Dep_dir}/toolchain; > /dev/null
     fi	
 
   #Install, extract llvm(not working yet) 
@@ -152,7 +152,7 @@ script:
   -
     if [ "$TRAVIS_OS_NAME" = "windows" ]; then
       cmake -A x64 -DBoost_USE_STATIC_LIBS=ON ..;
-      cmake --build.;
+      cmake --build .;
     fi
   - cd ..
   - PATH=${TRAVIS_BUILD_DIR}/build_dir/installed/lib:$PATH
