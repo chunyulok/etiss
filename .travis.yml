@@ -11,7 +11,9 @@ before_install:
 #window packages
   - choco install doxygen.install;
   - choco install graphviz;
-  - choco install unzip; 
+  - choco install unzip;
+  - choco install LLVM;
+#  - nuget install MyPackage -Source %cd% -OutputDirectory packages	 
   - wget --no-check-certificate https://dl.bintray.com/boostorg/release/1.68.0/source/boost_1_68_0.7z;
   - 7z x boost_1_68_0.7z -o/C/local;
   - cd "/C/local/boost_1_68_0";
@@ -25,7 +27,6 @@ before_install:
   - mkdir -p ${Dep_dir}/cmake #directory for Cmake version 3.16.2
   - mkdir -p ${Dep_dir}/toolchain #directly for Riscv64 toolchain
   - mkdir -p ${Dep_dir}/JIT #directory for LLVM
-  - mkdir -p ${Dep_dir}/gmake #directory for LLVM
 #Wget all dependencies
   #Install , extract cmake to directory
   - wget https://cmake.org/files/v3.16/cmake-3.16.2-win32-x86.zip > /dev/null
@@ -48,7 +49,7 @@ before_install:
 install:
   - cd ${TRAVIS_BUILD_DIR}
   - mkdir build_dir && cd build_dir
-  - cmake  -DBoost_USE_STATIC_LIBS=ON -DLLVM_DIR="/C/Users/travis/AppData/Local/Temp/chocolatey/llvm/9.0.0/LLVM-9.0.0-win64.exe" -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..
+  - cmake -A x64 -DBoost_USE_STATIC_LIBS=ON -DLLVM_DIR="/C/Users/travis/AppData/Local/Temp/chocolatey/llvm/9.0.0/LLVM-9.0.0-win64.exe" -DCMAKE_BUILD_TYPE=Release -DETISS_BUILD_MANUAL_DOC=ON -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installed ..
   - cmake --build . --config release
   - cmake --build . --target doc
   - cmake --build . --target install
