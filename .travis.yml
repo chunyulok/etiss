@@ -25,6 +25,7 @@ before_install:
   - mkdir -p ${Dep_dir}/cmake #directory for Cmake version 3.16.2
   - mkdir -p ${Dep_dir}/toolchain #directly for Riscv64 toolchain
   - mkdir -p ${Dep_dir}/JIT #directory for LLVM
+  - mkdir -p ${Dep_dir}/gmake #directory for LLVM
 #Wget all dependencies
   #Install , extract cmake to directory
   - wget https://cmake.org/files/v3.16/cmake-3.16.2-win32-x86.zip > /dev/null
