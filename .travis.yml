@@ -13,6 +13,7 @@ before_install:
   - choco install graphviz;
   - choco install unzip;
   - choco install LLVM;
+  - dir /C/Users/travis/AppData/Local/Temp/chocolatey/llvm
 #  - nuget install MyPackage -Source %cd% -OutputDirectory packages	 
   - wget --no-check-certificate https://dl.bintray.com/boostorg/release/1.68.0/source/boost_1_68_0.7z;
   - 7z x boost_1_68_0.7z -o/C/local;
