@@ -1,0 +1,51 @@
+<map id="/home/travis/build/chunyulok/etiss/include/etiss/CodePart.h" name="/home/travis/build/chunyulok/etiss/include/etiss/CodePart.h">
+<area shape="rect" id="node2" href="$CPUArch_8h.html" title="contains neccesary interfaces for instruction translation. " alt="" coords="793,339,971,395"/>
+<area shape="rect" id="node26" href="$Translation_8h.html" title="/home/travis/build\l/chunyulok/etiss/include\l/etiss/Translation.h" alt="" coords="402,458,581,514"/>
+<area shape="rect" id="node30" href="$Instruction_8h.html" title="contains container classes to store instruction definitions + translation functions and build a trans..." alt="" coords="615,221,794,277"/>
+<area shape="rect" id="node36" href="$Plugin_8h.html" title="plugins for extensions to code translation and instruction execution " alt="" coords="1530,109,1709,165"/>
+<area shape="rect" id="node50" href="$CodePart_8cpp.html" title="implementation of etiss/CodePart.h " alt="" coords="1733,109,1884,165"/>
+<area shape="rect" id="node3" href="$CPUCore_8h.html" title="defines main cpu core interface " alt="" coords="1090,695,1269,751"/>
+<area shape="rect" id="node11" href="$CPUArch_8cpp.html" title="implementation of etiss/CPUArch.h " alt="" coords="795,814,945,870"/>
+<area shape="rect" id="node12" href="$IntegratedLibrary_2errorInjection_2Plugin_8cpp.html" title="implementation of etiss/IntegratedLibrary/errorInjection/Plugin.h " alt="" coords="1033,807,1262,877"/>
+<area shape="rect" id="node17" href="$CPUArchLibrary_8h.html" title="defines the functions needed for a library that provides etiss::CPUArch implementations ..." alt="" coords="1237,458,1455,514"/>
+<area shape="rect" id="node20" href="$GDBServer_8h.html" title="/home/travis/build\l/chunyulok/etiss/include\l/etiss/IntegratedLibrary\l/gdb/GDBServer.h" alt="" coords="2763,451,2942,521"/>
+<area shape="rect" id="node22" href="$InterruptHandler_8h.html" title="interrupt checking and signaling " alt="" coords="933,577,1111,633"/>
+<area shape="rect" id="node24" href="$LibraryInterface_8h.html" title="class for simple library access. " alt="" coords="1034,458,1213,514"/>
+<area shape="rect" id="node28" href="$DebugSystem_8cpp.html" title="implementation of etiss/DebugSystem.h " alt="" coords="656,458,807,514"/>
+<area shape="rect" id="node29" href="$PrintInstruction_8cpp.html" title="implementation of etiss/IntegratedLibrary/PrintInstruction.h " alt="" coords="1917,458,2185,514"/>
+<area shape="rect" id="node4" href="$ETISS_8h.html" title="Header file of the ETISS library. " alt="" coords="1385,814,1563,870"/>
+<area shape="rect" id="node7" href="$CPUCore_8cpp.html" title="implementation of etiss/CPUCore.h " alt="" coords="1224,925,1375,981"/>
+<area shape="rect" id="node13" href="$GDBServer_8cpp.html" title="implementation of etiss/IntegratedLibrary/gdb/GDBServer.h " alt="" coords="2569,807,2736,877"/>
+<area shape="rect" id="node14" href="$InstructionAccurateCallback_8cpp.html" title="/home/travis/build\l/chunyulok/etiss/src\l/IntegratedLibrary/Instruction\lAccurateCallback.cpp" alt="" coords="158,807,369,877"/>
+<area shape="rect" id="node15" href="$VariableValueLogger_8cpp.html" title="/home/travis/build\l/chunyulok/etiss/src\l/IntegratedLibrary/Variable\lValueLogger.cpp" alt="" coords="419,807,614,877"/>
+<area shape="rect" id="node16" href="$MMU_8cpp.html" title="Modeling hardware memory management for virtual memory &#45;&gt; physical memory translation and protection..." alt="" coords="2848,814,2999,870"/>
+<area shape="rect" id="node5" href="$DMMUWrapper_8h.html" title="Wrapper class to wrap aroud data MMU. " alt="" coords="2481,925,2680,981"/>
+<area shape="rect" id="node8" href="$ETISS_8cpp.html" title="Implementation of etiss/ETISS.h except for etiss::preloadLibraries. " alt="" coords="1573,925,1724,981"/>
+<area shape="rect" id="node9" href="$ETISSInit_8cpp.html" title="implementation of etiss::preloadLibraries " alt="" coords="1399,925,1549,981"/>
+<area shape="rect" id="node10" href="$PageFaultVector_8cpp.html" title="/home/travis/build\l/chunyulok/etiss/src\l/mm/PageFaultVector.cpp" alt="" coords="2097,925,2283,981"/>
+<area shape="rect" id="node6" href="$DMMUWrapper_8cpp.html" title="Wrapper class to wrap aroud data MMU. " alt="" coords="2491,1029,2670,1085"/>
+<area shape="rect" id="node18" href="$IntegratedLibrary_8cpp.html" title="example implementation of a dynamic library interface that is used to provide access to integrated pl..." alt="" coords="2317,577,2479,633"/>
+<area shape="rect" id="node19" href="$IntegratedLibraryHelper_8cpp.html" title="implements a LibraryInterface for the integrated library which is not loaded like other libraries but..." alt="" coords="1419,577,1625,633"/>
+<area shape="rect" id="node21" href="$GDBSystemWrapper_8cpp.html" title="implements a ETISS_System wrapper to enable breakpoints " alt="" coords="2707,569,2891,640"/>
+<area shape="rect" id="node23" href="$InterruptHandler_8cpp.html" title="implements etiss/InterruptHandler.h " alt="" coords="907,695,1065,751"/>
+<area shape="rect" id="node25" href="$LibraryInterface_8cpp.html" title="implements etiss/LibraryInterface.h and provides LibraryInterface implementation for shared/dynamic l..." alt="" coords="1187,577,1343,633"/>
+<area shape="rect" id="node27" href="$Translation_8cpp.html" title="/home/travis/build\l/chunyulok/etiss/src\l/Translation.cpp" alt="" coords="416,577,567,633"/>
+<area shape="rect" id="node31" href="$InstructionSpecificAddressCallback_8h.html" title="contains a simple plugin to print instructions " alt="" coords="1177,332,1443,403"/>
+<area shape="rect" id="node33" href="$Timing_8h.html" title="/home/travis/build\l/chunyulok/etiss/include\l/etiss/Timing.h" alt="" coords="1467,339,1646,395"/>
+<area shape="rect" id="node35" href="$Instruction_8cpp.html" title="/home/travis/build\l/chunyulok/etiss/src\l/Instruction.cpp" alt="" coords="403,339,553,395"/>
+<area shape="rect" id="node32" href="$InstructionSpecificAddressCallback_8cpp.html" title="implementation of etiss/IntegratedLibrary/PrintInstruction.h " alt="" coords="1682,451,1893,521"/>
+<area shape="rect" id="node34" href="$Timing_8cpp.html" title="/home/travis/build\l/chunyulok/etiss/src\l/Timing.cpp" alt="" coords="2209,458,2360,514"/>
+<area shape="rect" id="node37" href="$PluginLibrary_8h.html" title="defines the functions needed for a library that provides etiss::CPUArch implementations ..." alt="" coords="2436,458,2637,514"/>
+<area shape="rect" id="node38" href="$IntegratedLibrary_2errorInjection_2Plugin_8h.html" title="/home/travis/build\l/chunyulok/etiss/include\l/etiss/IntegratedLibrary\l/errorInjection/Plugin.h" alt="" coords="1479,451,1658,521"/>
+<area shape="rect" id="node39" href="$SwitchSystem_8h.html" title="/home/travis/build\l/chunyulok/etiss/include\l/etiss/IntegratedLibrary\l/fault/SwitchSystem.h" alt="" coords="1594,213,1773,284"/>
+<area shape="rect" id="node41" href="$InstructionAccurateCallback_8h.html" title="/home/travis/build\l/chunyulok/etiss/include\l/etiss/IntegratedLibrary\l/InstructionAccurateCallback.h" alt="" coords="5,688,225,759"/>
+<area shape="rect" id="node42" href="$Logger_8h.html" title="/home/travis/build\l/chunyulok/etiss/include\l/etiss/IntegratedLibrary\l/Logger.h" alt="" coords="2478,213,2657,284"/>
+<area shape="rect" id="node44" href="$MemoryDevice_8h.html" title="/home/travis/build\l/chunyulok/etiss/include\l/etiss/IntegratedLibrary\l/MemoryDevice.h" alt="" coords="1797,213,1975,284"/>
+<area shape="rect" id="node46" href="$PrintInstruction_8h.html" title="contains a simple plugin to print instructions " alt="" coords="2158,332,2337,403"/>
+<area shape="rect" id="node47" href="$VariableValueLogger_8h.html" title="/home/travis/build\l/chunyulok/etiss/include\l/etiss/IntegratedLibrary\l/VariableValueLogger.h" alt="" coords="301,688,479,759"/>
+<area shape="rect" id="node48" href="$MMU_8h.html" title="Modeling hardware memory management for virtual memory &#45;&gt; physical memory translation and protection..." alt="" coords="2915,221,3094,277"/>
+<area shape="rect" id="node49" href="$Plugin_8cpp.html" title="implements etiss/Plugin.h " alt="" coords="2051,221,2201,277"/>
+<area shape="rect" id="node40" href="$SwitchSystem_8cpp.html" title="/home/travis/build\l/chunyulok/etiss/src\l/IntegratedLibrary/fault\l/SwitchSystem.cpp" alt="" coords="1671,332,1843,403"/>
+<area shape="rect" id="node43" href="$Logger_8cpp.html" title="/home/travis/build\l/chunyulok/etiss/src\l/IntegratedLibrary/Logger.cpp" alt="" coords="2461,339,2673,395"/>
+<area shape="rect" id="node45" href="$MemoryDevice_8cpp.html" title="/home/travis/build\l/chunyulok/etiss/src\l/IntegratedLibrary/MemoryDevice.cpp" alt="" coords="1867,339,2134,395"/>
+</map>
